@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainComponent } from './main/main.component';
+import { GlobalComponent } from './global/global.component';
 import { LoginComponent } from './login/login.component';
 import { AskComponent } from './ask/ask.component';
 import { SpeakersComponent } from './speakers/speakers.component';
@@ -10,11 +10,11 @@ import {  PhotoComponent  } from './photo/photo.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: MainComponent
+    path: 'global',
+    component: GlobalComponent
   },
   {
-    path: 'login',
+    path: '',
     component: LoginComponent
   },
   {
@@ -28,6 +28,10 @@ const routes: Routes = [
   {
     path: 'photo',
     component: PhotoComponent
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
   }
 ];
 

@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { MainComponent } from './main/main.component';
+import { GlobalComponent } from './global/global.component';
 import { LoginComponent } from './login/login.component';
 import { AskComponent } from './ask/ask.component';
 import { SpeakersComponent } from './speakers/speakers.component';
@@ -14,7 +14,7 @@ import {  PhotoComponent  } from './photo/photo.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MainComponent,
+    GlobalComponent,
     LoginComponent,
     AskComponent,
     SpeakersComponent,

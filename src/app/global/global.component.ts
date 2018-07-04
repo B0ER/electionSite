@@ -2,11 +2,11 @@ import { Component, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-main',
-  templateUrl: 'main.component.html',
-  styleUrls: ['./main.component.scss']
+  templateUrl: 'global.component.html',
+  styleUrls: ['./global.component.scss']
 })
 
-export class MainComponent implements OnInit {
+export class GlobalComponent implements OnInit {
 
   name: string;
   lastName: string;

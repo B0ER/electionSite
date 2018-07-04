@@ -40,7 +40,7 @@
   position: relative;
   top: 3px;
   left: 5px;
-  background-image: url("../img/exit.png");
+  background-image: url("../../assets/exit.png");
   cursor: pointer;
   background-size: cover;
   z-index: 3;
@@ -96,7 +96,7 @@
   position: relative;
   top: 5px;
   left: 1px;
-  background-image: url("../img/del.png");
+  background-image: url("../../assets/del.png");
   cursor: pointer;
   background-size: cover;
   width: 20px;
@@ -122,7 +122,7 @@
   position: relative;
   top: 5px;
   left: 1px;
-  background-image: url("../img/add.png");
+  background-image: url("../../assets/add.png");
   cursor: pointer;
   background-size: cover;
   width: 20px;
@@ -272,7 +272,7 @@ h3{
   position: relative;
   top: 5px;
   left: 1px;
-  background-image: url("../img/cansel.png");
+  background-image: url("../../assets/cansel.png");
   cursor: pointer;
   background-size: cover;
   width: 20px;
@@ -317,7 +317,7 @@ h3{
   /* Задаем расстояние от верхней, правой, нижней и левой границы */
   top: -2px;
   left: -2px;
-  background-image: url("../img/done.png"); /* Добавляем фон. Если требуется, можете поставить сюда картинку в виде "галочки", которая будет символизировать, что чекбокс отмечен */
+  background-image: url("../../assets/done.png"); /* Добавляем фон. Если требуется, можете поставить сюда картинку в виде "галочки", которая будет символизировать, что чекбокс отмечен */
   cursor: pointer;
   background-size: cover;
   width: 20px;

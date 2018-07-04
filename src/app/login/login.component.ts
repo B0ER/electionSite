@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
   snackbarText: string;
 
 
-  constructor() {
+  constructor(private router: Router) {
 
   }
 
@@ -30,6 +31,10 @@ export class LoginComponent implements OnInit {
     setTimeout(function () {
       x.className = x.className.replace('show', '');
     }, 3000);
+  }
+
+  logIn(){
+    this.router.navigate(['global']);
   }
 
 }

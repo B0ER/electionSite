@@ -1,0 +1,118 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light header">
+  <div class="exit">
+    <div class="collapse navbar-collapse menu" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="/">Користувачі</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="/speakers">Виступаючі</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="/ask">Питання</a>
+        </li>
+        <li class="nav-item" style="cursor: pointer">
+          <a class="nav-link" (click)="showHeader()">Встановити голову</a>
+        </li>
+        <li class="nav-item" style="cursor: pointer">
+          <a class="nav-link" (click)="showTime()">Встановити час голосування</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  routerLink="/photo">Слайди</a>
+        </li>
+      </ul>
+    </div>
+    <!--<h1 class="name">Elections</h1>-->
+    <button type="button" routerLink="/login" class="btn btn-primary">Вихід</button>
+  </div>
+</nav>
+
+<div *ngIf="showTimeModal" class="show-time">
+  <div class="mod_show_time">
+    <h3>Виберіть час від 5 до 3600 секунд</h3>
+    <input class="modal-input" min="5" max="3600" type="number" [(ngModel)]="selectedTime">
+    <div class="but_modal">
+      <button class="modal-btn but_cancel" (click)="closeTimeModal()">Відмінити</button>
+      <button class="modal-btn but_pick" (click)="pickTime(selectedTime)">Обрати</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="showHeaderModal" class="show-time">
+  <div class="mod_show_header" >
+    <h3>Виберіть голову</h3>
+    <select [(ngModel)]="selectedValue" class="input_main">
+      <option *ngFor="let c of headArr" [ngValue]="c">{{c}}</option>
+    </select>
+    <div class="but_modal">
+      <button class="modal-btn but_cancel" (click)="closeHeadModal()">Відмінити</button>
+      <button class="modal-btn but_pick" (click)="pickHead(selectedValue)">Обрати</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="but_del_add">
+    <button type="button" class="btn btn_del btn-light btn-lg" (click)="deleteSelected()">Видалити</button>
+    <button type="button" class="btn btn_add btn-dark btn-lg" (click)="addItem()">Додати</button>
+  </div>
+
+  <div *ngIf="showModal" class="modal">
+    <div class="modal_tabel">
+      <h3>Data</h3>
+
+      <input class="modal-input" placeholder="Ім'я"  [(ngModel)]="name" id="name" type="text" #valid_name>
+
+     <!-- <div *ngIf="errorName" col-lg-12 col-md-6 class="errorMess">
+        <p class="err">Name can not contain digits!</p>
+      </div>-->
+
+
+      <input class="modal-input" placeholder="Прізвище" [(ngModel)]="lastName" id="last-name" type="text" #valid_lastName>
+
+      <!--<div *ngIf="errorLastName" col-lg-12 col-md-6 class="errorMess">
+        <p class="err">Name can not contain digits!</p>
+      </div>-->
+
+
+      <input class="modal-input" placeholder="По батькові" [(ngModel)]="patr" id="patr" type="text" #vpatr>
+
+
+      <input class="modal-input" placeholder="Партія" [(ngModel)]="consig" id="consig" type="text" #vconsig>
+
+
+      <input class="modal-input" placeholder="MAC-адрес" [(ngModel)]="address" id="address" type="text"  #vaddress>
+
+      <div class="but_modal_table" >
+        <button class="modal-btn but_cancel" (click)="closeModal()">Відмінити</button>
+        <button class="modal-btn but_pick" (click)="saveItem(name, lastName, patr, consig, address)">Добавити</button>
+      </div>
+    </div>
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col"><label><input class="checkbox" [(ngModel)]="selectedAll" (change)="selectAll()" type="checkbox" aria-label="Checkbox for following text input">
+        <span class="checkbox-custom"></span></label>
+      <th scope="col">Ім'я</th>
+      <th scope="col">Прізвище</th>
+      <th scope="col">По батькові</th>
+      <th scope="col">Партія</th>
+      <th scope="col">MAC-адрес</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of itemData">
+      <th scope="row"><label><input type="checkbox" class="checkbox" [(ngModel)]="item.checked" aria-label="Checkbox for following text input">
+        <span class="checkbox-custom"></span></label></th>
+      <td>{{item.name}}</td>
+      <td>{{item.lastName}}</td>
+      <td>{{item.patr}}</td>
+      <td>{{item.consig}}</td>
+      <td>{{item.address}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

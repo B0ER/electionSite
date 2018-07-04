@@ -1,0 +1,372 @@
+
+.name{
+  font-size: 25px;
+  color: #000000;
+}
+.header{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
+.exit {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.navbar{
+  padding: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.bg-light{
+  background:	#1E90FF	!important;
+}
+.active{
+  font-size: 18px;
+  color: white;
+  border-bottom: 1px solid white;
+}
+.btn-primary{
+  background: none !important;
+  border: 1px solid #212121 ;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  font-size: 14px;
+  padding: 0 5px;
+  height: 40px;
+}
+.btn-primary:after{
+  content: "";
+  position: relative;
+  top: 3px;
+  left: 5px;
+  background-image: url("../img/exit.png");
+  cursor: pointer;
+  background-size: cover;
+  z-index: 3;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+}
+.menu {
+  display: flex;
+  flex-direction: row;
+
+  .navbar-nav{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    .nav-link{
+      font-size: 18px;
+      color: white;
+    }
+    .nav-item:hover{
+      font-size: 18px;
+      color: white;
+      border-bottom: 1px solid white;
+    }
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 30px;
+  .but_del_add {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+.but_del_add>.btn_del{
+  font-family: "FreeSans";
+  border-radius: 3px;
+  margin: 5px;
+  border:1px solid #FFA500;
+  background: #FFA500;
+  color: #000;
+  box-shadow: 0 0 3px 0 #FFA500;
+  font-size: 15px;
+  padding: 3px;
+
+}
+.but_del_add>.btn_del:after{
+  content: "";
+  position: relative;
+  top: 5px;
+  left: 1px;
+  background-image: url("../img/del.png");
+  cursor: pointer;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  z-index: 3;
+  display: inline-block;
+}
+
+.but_del_add>.btn_add {
+  font-family: "FreeSans";
+  border-radius: 3px;
+  margin: 5px;
+  border:1px solid #FFA500;
+  background: #FFA500;
+  color: #000;
+  box-shadow: 0 0 3px 0 #FFA500;
+  font-size: 15px;
+  padding: 3px;
+}
+
+.but_del_add>.btn_add:after{
+  content: "";
+  position: relative;
+  top: 5px;
+  left: 1px;
+  background-image: url("../img/add.png");
+  cursor: pointer;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  z-index: 3;
+  display: inline-block;
+}
+
+.show-time {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /*background:url("http://webmastermix.ru/images/creation-site/lessons-html/spiski-v-html/spiski-v-html.png") 50% no-repeat;
+  background-size: cover;*/
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 100px;
+  opacity: 0.9;
+}
+.mod_show_time {
+  background: #1E90FF;
+  border:1px solid #1E90FF;
+  border-radius: 3px;
+  opacity: 1;
+  color: black;
+  font-size: 15px !important;
+  padding: 10px;
+  height: 30vh;
+  width: 45vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 3px 0 #1E90FF;
+  /* justify-content: center; */
+  align-items: center;
+  justify-content: space-around;
+  .but_modal {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    button {
+      width: 50%;
+      margin: 5px;
+      cursor: pointer;
+    }
+  }
+}
+
+
+.modal-input{
+  width: 50%;
+  cursor: pointer;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: 50vh;
+  height: 55vh;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: #1E90FF;
+  top: 30%;
+  left: 30%;
+  border-radius: 3px;
+  border: 1px solid #1E90FF;
+  box-shadow: 0 0 3px 0 #1E90FF;
+
+}
+
+.modal-input {
+  width: 100%;
+  padding: 3px;
+  border: 1px solid black;
+  background: white;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.but_modal_table{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.modal-label {
+  margin-bottom: 0;
+}
+.errorMess {
+  .item-inner {
+    border-bottom: none !important;
+    .input-wrapper{
+      max-height: 25px !important;
+
+    }
+  }
+}
+
+.mod_show_header {
+  background: #1E90FF;
+  border:1px solid  #1E90FF;
+  border-radius: 3px;
+  opacity: 1;
+  color: black;
+  font-size: 15px !important;
+  padding: 10px;
+  height: 25vh;
+  width: 40vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 3px 0 #1E90FF;
+  /* justify-content: center; */
+  align-items: center;
+  justify-content: space-around;
+  .but_modal {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    button {
+      width: 50%;
+      margin: 5px;
+      cursor: pointer;
+    }
+  }
+}
+h3{
+  font-size: 25px;
+}
+
+
+.but_cancel, .but_pick{
+  font-family: "FreeSans";
+  border-radius: 3px;
+  margin: 5px;
+  border:1px solid #FFA500;
+  background: #FFA500;
+  color: #000;
+  box-shadow: 0 0 3px 0 #FFA500;
+  font-size: 15px;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.but_cancel:after{
+  content: "";
+  position: relative;
+  top: 5px;
+  left: 5px;
+  background-image: url("../img/cansel.png");
+  cursor: pointer;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  z-index: 3;
+  display: inline-block;
+}
+.but_pick:after{
+  content: "";
+  position: relative;
+  top: 5px;
+  left: 5px;
+  background-image: url("../img/done.png");
+  cursor: pointer;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  z-index: 3;
+  display: inline-block;
+}
+
+.input_main {
+  width: 70%;
+  padding: 3px;
+  border: 1px solid black;
+  background: white;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* Скрываем реальный чекбокс */
+.checkbox {
+  display: none;
+}
+/* Задаем внешний вид для нашего кастомного чекбокса. Все обязательные свойства прокомментированы, остальные же свойства меняйте по вашему усмотрению */
+.checkbox-custom {
+  position: relative;      /* Обязательно задаем, чтобы мы могли абсолютным образом позиционировать псевдоэлемент внютри нашего кастомного чекбокса */
+  width: 20px;             /* Обязательно задаем ширину */
+  height: 20px;            /* Обязательно задаем высоту */
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  top: 6px;
+}
+/* Кастомный чекбокс и лейбл центрируем по вертикали. Если вам это не требуется, то вы можете убрать свойство vertical-align: middle из данного правила, но свойство display: inline-block обязательно должно быть */
+.checkbox-custom,
+.label {
+  display: inline-block;
+  vertical-align: middle;
+}
+/* Если реальный чекбокс у нас отмечен, то тогда добавляем данный признак и к нашему кастомному чекбоксу  */
+.checkbox:checked + .checkbox-custom::before {
+  content: "";             /* Добавляем наш псевдоэлемент */
+  display: block;			 /* Делаем его блочным элементом */
+  position: absolute;      /* Позиционируем его абсолютным образом */
+  /* Задаем расстояние от верхней, правой, нижней и левой границы */
+  top: -2px;
+  left: -2px;
+  background-image: url("../img/done.png"); /* Добавляем фон. Если требуется, можете поставить сюда картинку в виде "галочки", которая будет символизировать, что чекбокс отмечен */
+  cursor: pointer;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+}
+
+.modal_tabel{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  .modal-input{
+    width: 50%;
+    display: inline-block;
+    margin: 10px;
+  }
+}
+
+.table td{
+  position: relative;
+  top:7px;
+  text-align: center;
+}
+
+.table th{
+  text-align: center;
+
+}
+.PIB{
+  width: 25%;
+}

@@ -1,32 +1,45 @@
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light header">
-  <div class="exit">
-    <div class="collapse navbar-collapse menu" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" routerLink="/global">Користувачі</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"  routerLink="/speakers">Виступаючі</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"  routerLink="/ask">Питання</a>
-        </li>
-        <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link" (click)="showHeader()">Встановити голову</a>
-        </li>
-        <li class="nav-item" style="cursor: pointer">
-          <a class="nav-link" (click)="showTime()">Встановити час голосування</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link"  routerLink="/photo">Слайди</a>
-        </li>
-      </ul>
-    </div>
-    <!--<h1 class="name">Elections</h1>-->
-    <button type="button" routerLink="/" class="btn btn-primary">Вихід</button>
-  </div>
-</nav>
+<!--<nav class="navbar navbar-expand-lg navbar-light bg-light header">-->
+  <!--<div class="exit">-->
+    <!--<div class="collapse navbar-collapse menu" id="navbarNavDropdown">-->
+      <!--<ul class="navbar-nav">-->
+        <!--<li class="nav-item active">-->
+          <!--<a class="nav-link" routerLink="/global">Користувачі</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+          <!--<a class="nav-link"  routerLink="/speakers">Виступаючі</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+          <!--<a class="nav-link"  routerLink="/ask">Питання</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item" style="cursor: pointer">-->
+          <!--<a class="nav-link" (click)="showHeader()">Встановити голову</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item" style="cursor: pointer">-->
+          <!--<a class="nav-link" (click)="showTime()">Встановити час голосування</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+          <!--<a class="nav-link"  routerLink="/photo">Слайди</a>-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+    <!--&lt;!&ndash;<h1 class="name">Elections</h1>&ndash;&gt;-->
+    <!--<button type="button" routerLink="/" class="btn btn-primary">Вихід</button>-->
+  <!--</div>-->
+<!--</nav>-->
+<header>
+  <nav>
+    <a class="active_link" href=""> <div class="punkt ">Користувачі</div></a>
+    <a href="#"> <div class="punkt">Виступаючі</div></a>
+    <a href="#"> <div class="punkt">Питання</div></a>
+    <a href="#"> <div class="punkt">Встановити головну</div></a>
+    <a href="#"> <div class="punkt">Встановити час голосування</div></a>
+    <a href="#"> <div class="punkt">Слайди</div></a>
+
+  </nav>
+  <button type="button" routerLink="/" class="">Вихід <img class="img_btn" src="../assets/exit.png" alt=""></button>
+
+</header>
 
 <div *ngIf="showTimeModal" class="show-time">
   <div class="mod_show_time">
@@ -54,8 +67,8 @@
 
 <div class="container">
   <div class="but_del_add">
-    <button type="button" class="btn btn_del btn-light btn-lg" (click)="deleteSelected()">Видалити</button>
-    <button type="button" class="btn btn_add btn-dark btn-lg" (click)="addItem()">Додати</button>
+    <button type="button " class="action_button" (click)="deleteSelected()">Видалити</button>
+    <button type="button mt" class=" action_button" (click)="addItem()">Додати</button>
   </div>
 
   <div *ngIf="showModal" class="modal">

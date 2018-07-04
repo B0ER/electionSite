@@ -4,11 +4,11 @@
   color: #000000;
 }
 .header{
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
+  justify-content: space-around;
 }
+
 .exit {
   display: flex;
   flex-direction: row;
@@ -40,7 +40,6 @@
   position: relative;
   top: 3px;
   left: 5px;
-  background-image: url("../../assets/exit.png");
   cursor: pointer;
   background-size: cover;
   z-index: 3;

@@ -34,49 +34,10 @@ export class GlobalComponent implements OnInit {
 
   @ViewChild('valid_name') valid_name;
   @ViewChild('valid_lastName') valid_lastName;
- /* @ViewChild('vpatr') vpatr;
+  @ViewChild('vpatr') vpatr;
   @ViewChild('vconsig') vconsig;
-  @ViewChild('vaddress') vaddress;*/
+  @ViewChild('vaddress') vaddress;
 
-
-  errorName: boolean = false;
-  errorLastName: boolean = false;
-  /*errorPatr: boolean = false;
-  errorConsig: boolean = false;
-  errorAddress: boolean = false;
-  sentMess: boolean = false;*/
-
-  regName = /^[a-zA-Z_]+$/i;
-
-
-  sendMes() {
-
-    this.errorName = false;
-    this.errorLastName = false;
-    /*this.errorPatr = false;
-    this.errorConsig = false;
-    this.errorAddress = false;
-    this.sentMess = false;*/
-
-
-    if (!this.regName.test(this.valid_name.value.toLowerCase())) {
-      this.errorName = true;
-    }
-
-
-    if (!this.regName.test(this.valid_lastName.value.toLowerCase())) {
-      this.errorLastName = true;
-    }
-
-
-    /*if (!this.regMes.test(this.subj.value.toLowerCase())) {
-      this.errorSubj = true;
-    }
-
-    if (!this.regMes.test(this.mess.value.toLowerCase())) {
-      this.errorMess = true;
-    }*/
-  }
 
   closeModal() {
     this.name = '';

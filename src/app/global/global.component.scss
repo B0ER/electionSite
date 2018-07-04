@@ -3,12 +3,64 @@
   font-size: 25px;
   color: #000000;
 }
-.header{
+header{
+  padding-left: 2%;
+  padding-right: 1%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  background: rgba(0, 0, 0, 0.18);
+  font-size: 1.1em;
+}
+a{
+  color: #4b4b4b;
+}
+a:hover{
+  color: #ffff;
+  text-decoration: none;
+}
+.active_link{
+  border-bottom:  solid 2px #ffffff;
+  padding-left: 1%;
+  padding-right: 1%;
+  color: black;
 
 }
+
+button{
+  width: 5%;
+  border: solid 1px black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 35px;
+}
+button:hover{
+  cursor: pointer;
+  color: white;
+
+  border: solid 1px white;
+}
+nav{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 50%;
+}
+.img_btn{
+  width: 20px;
+}
+.action_button{
+  width: 100px;
+}
+
+
+
+
 .exit {
   display: flex;
   flex-direction: row;
@@ -40,7 +92,6 @@
   position: relative;
   top: 3px;
   left: 5px;
-  background-image: url("../../assets/exit.png");
   cursor: pointer;
   background-size: cover;
   z-index: 3;
@@ -68,15 +119,19 @@
   }
 }
 
+.mt{
+  margin-top: 15px;
+}
 .container {
   display: flex;
   flex-direction: column;
   margin: 30px;
   .but_del_add {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    margin-bottom: 20px;
+    width: 25%;
+      display: flex;
+
+    justify-content: space-between;
+
   }
 }
   .but_del_add>.btn_del{
@@ -147,6 +202,7 @@
   padding: 100px;
   opacity: 0.9;
 }
+
   .mod_show_time {
     background: #1E90FF;
     border:1px solid #1E90FF;
@@ -318,7 +374,7 @@ h3{
   position: relative;      /* Обязательно задаем, чтобы мы могли абсолютным образом позиционировать псевдоэлемент внютри нашего кастомного чекбокса */
   width: 20px;             /* Обязательно задаем ширину */
   height: 20px;            /* Обязательно задаем высоту */
-  border: 2px solid #ccc;
+  border: 2px solid black;
   border-radius: 3px;
   cursor: pointer;
   top: 6px;
@@ -355,6 +411,9 @@ h3{
     display: inline-block;
     margin: 10px;
   }
+}
+table{
+  margin-top: 5%;
 }
 
 .table td{

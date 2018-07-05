@@ -11,6 +11,8 @@ import { AskComponent } from './ask/ask.component';
 import { SpeakersComponent } from './speakers/speakers.component';
 import {  PhotoComponent  } from './photo/photo.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { ShowTimeComponent } from './modal/show-time/show-time.component';
+import { DirectorComponent } from './modal/director/director.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { NavbarComponent } from './navbar/navbar.component';
     AskComponent,
     SpeakersComponent,
     PhotoComponent,
-    NavbarComponent
+    NavbarComponent,
+    ShowTimeComponent,
+    DirectorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,8 @@
+<div class="mod_show_time">
+  <h3>Виберіть час від 5 до 3600 секунд</h3>
+  <input class="modal-input" min="5" max="3600" type="number" [(ngModel)]="selectedTime">
+  <div class="but_modal">
+    <button class="modal-btn but_cancel" (click)="closeTimeModal()">Відмінити</button>
+    <button class="modal-btn but_pick" (click)="pickTime(selectedTime)">Обрати</button>
+  </div>
+</div>

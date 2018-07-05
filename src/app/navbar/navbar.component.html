@@ -1,12 +1,12 @@
 <header>
-<nav>
-  <a class="active_link" href=""> <div>Користувачі</div></a>
-  <a href="#"> <div>Виступаючі</div></a>
-  <a href="#"> <div>Питання</div></a>
-  <a href="#"> <div>Встановити головну</div></a>
-  <a href="#"> <div>Встановити час голосування</div></a>
-  <a href="#"> <div>Слайди</div></a>
+  <nav>
+    <a class="active_link" routerLink="/global"> <div>Користувачі</div></a>
+    <a routerLink="/speakers"> <div>Виступаючі</div></a>
+    <a routerLink="/ask"> <div>Питання</div></a>
+    <a routerLink="/photo"> <div>Слайди</div></a>
+    <a [routerLink]="" (click)="showHeader()"> <div>Встановити голову</div></a>
+    <a [routerLink]="" (click)="showTime()"> <div>Встановити час голосування</div></a>
+  </nav>
 
-</nav>
-<button type="button" routerLink="/" class="">Вихід <img class="img_btn" src="../assets/exit.png" alt=""></button>
+  <button type="button" routerLink="/" class="">Вихід <img class="img_btn" src="../assets/exit.png" alt=""></button>
 </header>

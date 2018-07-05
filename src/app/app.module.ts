@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { AskComponent } from './ask/ask.component';
 import { SpeakersComponent } from './speakers/speakers.component';
 import {  PhotoComponent  } from './photo/photo.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {  PhotoComponent  } from './photo/photo.component';
     LoginComponent,
     AskComponent,
     SpeakersComponent,
-    PhotoComponent
+    PhotoComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

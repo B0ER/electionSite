@@ -9,4 +9,16 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) {
   }
+
+  getQuestions() {
+    return this.httpClient.get(`${this.API_URL}/api.php?table=questions`);
+  }
+
+  getSpeakers() {
+    return this.httpClient.get(`${this.API_URL}/api.php?table=speakers`);
+  }
+
+  getUsers() {
+    return this.httpClient.get(`${this.API_URL}/api.php?table=deputies`);
+  }
 }

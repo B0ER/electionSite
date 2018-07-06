@@ -51,25 +51,25 @@
 
   <table class="table table-hover">
     <thead>
-    <tr class="row">
+    <tr>
       <th class="col-1"><label><input class="checkbox" [(ngModel)]="selectedAll" (change)="selectAll()" type="checkbox" aria-label="Checkbox for following text input">
         <span class="checkbox-custom"></span></label>
-      <th  class="col-2">Ім'я</th>
-      <th  class="col-2">Прізвище</th>
-      <th  class="col-2">По батькові</th>
-      <th  class="col-2">Партія</th>
-      <th  class="col-3">MAC-адрес</th>
+      <th class="col-2">Ім'я</th>
+      <th class="col-2">Прізвище</th>
+      <th class="col-2">По батькові</th>
+      <th class="col-2">Партія</th>
+      <th class="col-3">MAC-адрес</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of itemData" class="row">
+    <tr *ngFor="let item of userArray">
       <th class="col-1"><label><input type="checkbox" class="checkbox" [(ngModel)]="item.checked" aria-label="Checkbox for following text input">
         <span class="checkbox-custom"></span></label></th>
-      <td class="col-2">{{item.name}}</td>
-      <td class="col-2">{{item.lastName}}</td>
-      <td class="col-2">{{item.patr}}</td>
-      <td class="col-2">{{item.consig}}</td>
-      <td class="col-3">{{item.address}}</td>
+      <td class="col-2">{{item.imya}}</td>
+      <td class="col-2">{{item.fam}}</td>
+      <td class="col-2">{{item.otch}}</td>
+      <td class="col-2">{{item.consignment}}</td>
+      <td class="col-3">{{item.MAC}}</td>
     </tr>
     </tbody>
   </table>

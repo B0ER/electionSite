@@ -1,4 +1,5 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {ApiService} from '../api.service';
 
 @Component({
   selector: 'app-main',
@@ -7,6 +8,7 @@ import { Component, OnInit, ViewChild} from '@angular/core';
 })
 
 export class GlobalComponent implements OnInit {
+  userArray: Array<object> = [];
 
   name: string;
   lastName: string;
@@ -17,19 +19,18 @@ export class GlobalComponent implements OnInit {
   showTimeModal: boolean;
   selectedTime: number;
   selectedAll: any;
-  itemData: any[];
   showModal: boolean;
   selectedValue: string;
   headArr: any;
 
-  constructor() {
-    this.itemData = [];
+  constructor(private apiService: ApiService) {
     this.showModal = false;
     this.showTimeModal = false;
     this.headArr = ['head1', 'head2', 'head3', 'head4', 'head5', 'head6', 'head7', 'head8'];
   }
 
   ngOnInit() {
+    this.loadUser();
   }
 
   @ViewChild('valid_name') valid_name;
@@ -49,10 +50,10 @@ export class GlobalComponent implements OnInit {
   }
 
   selectAll() {
-    for (let i = 0; i < this.itemData.length; i++) {
-      this.itemData[i].checked = this.selectedAll;
-    }
-    console.log('items data', this.itemData);
+    // for (let i = 0; i < this.userArray.length; i++) {
+    //   this.userArray[i].checked = this.selectedAll;
+    // }
+    // console.log('items data', this.userArray);
   }
 
   pickTime(selectedTime) {
@@ -78,14 +79,14 @@ export class GlobalComponent implements OnInit {
   }
 
   deleteSelected() {
-    const data = [];
-    for (let i = 0; i < this.itemData.length; i++) {
-      if (this.itemData[i].checked === false) {
-        data.push(this.itemData[i]);
-      }
-    }
-    this.selectedAll = '';
-    this.itemData = data;
+    // const data = [];
+    // for (let i = 0; i < this.userArray.length; i++) {
+    //   if (this.userArray[i].checked === false) {
+    //     data.push(this.userArray[i]);
+    //   }
+    // }
+    // this.selectedAll = '';
+    // this.userArray = data;
   }
 
   saveItem(name, lastName, patr, consig, address) {
@@ -97,7 +98,7 @@ export class GlobalComponent implements OnInit {
       address: address,
       checked: false
     };
-    this.itemData.push(dataObj);
+    this.userArray.push(dataObj);
     this.closeModal();
   }
 
@@ -109,4 +110,10 @@ export class GlobalComponent implements OnInit {
     this.showModal = true;
   }
 
+  private loadUser() {
+    this.apiService.getUsers().subscribe((data: Array<object>) => {
+      this.userArray = data;
+      console.log('Data is set');
+    });
+  }
 }

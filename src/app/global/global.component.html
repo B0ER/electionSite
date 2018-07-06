@@ -43,33 +43,33 @@
       <input class="modal-input" placeholder="MAC-адрес" [(ngModel)]="address" id="address" type="text"  #vaddress>
 
       <div class="but_modal_table" >
-        <button class="but_cancel" (click)="closeModal()">Відмінити</button>
-        <button class="but_pick" (click)="saveItem(name, lastName, patr, consig, address)">Добавити</button>
+        <button class="but_cancel" (click)="closeModal()">Відмінити<img class="img_btn" src="../assets/cancel.png" alt=""></button>
+        <button class="but_pick" (click)="saveItem(name, lastName, patr, consig, address)">Додати<img class="img_btn" src="../assets/done.png" alt=""></button>
       </div>
     </div>
   </div>
 
   <table class="table table-hover">
     <thead>
-    <tr>
-      <th scope="col"><label><input class="checkbox" [(ngModel)]="selectedAll" (change)="selectAll()" type="checkbox" aria-label="Checkbox for following text input">
+    <tr class="row">
+      <th class="col-1"><label><input class="checkbox" [(ngModel)]="selectedAll" (change)="selectAll()" type="checkbox" aria-label="Checkbox for following text input">
         <span class="checkbox-custom"></span></label>
-      <th scope="col">Ім'я</th>
-      <th scope="col">Прізвище</th>
-      <th scope="col">По батькові</th>
-      <th scope="col">Партія</th>
-      <th scope="col">MAC-адрес</th>
+      <th  class="col-2">Ім'я</th>
+      <th  class="col-2">Прізвище</th>
+      <th  class="col-2">По батькові</th>
+      <th  class="col-2">Партія</th>
+      <th  class="col-3">MAC-адрес</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of itemData">
-      <th scope="row"><label><input type="checkbox" class="checkbox" [(ngModel)]="item.checked" aria-label="Checkbox for following text input">
+    <tr *ngFor="let item of itemData" class="row">
+      <th class="col-1"><label><input type="checkbox" class="checkbox" [(ngModel)]="item.checked" aria-label="Checkbox for following text input">
         <span class="checkbox-custom"></span></label></th>
-      <td>{{item.name}}</td>
-      <td>{{item.lastName}}</td>
-      <td>{{item.patr}}</td>
-      <td>{{item.consig}}</td>
-      <td>{{item.address}}</td>
+      <td class="col-2">{{item.name}}</td>
+      <td class="col-2">{{item.lastName}}</td>
+      <td class="col-2">{{item.patr}}</td>
+      <td class="col-2">{{item.consig}}</td>
+      <td class="col-3">{{item.address}}</td>
     </tr>
     </tbody>
   </table>

@@ -75,63 +75,8 @@ nav {
   .but_del_add {
     width: 25%;
     display: flex;
-
     justify-content: space-between;
-
   }
-}
-
-.but_del_add > .btn_del {
-  font-family: "FreeSans";
-  border-radius: 3px;
-  margin: 5px;
-  border: 1px solid #FFA500;
-  background: #FFA500;
-  color: #000;
-  box-shadow: 0 0 3px 0 #FFA500;
-  font-size: 15px;
-  padding: 3px;
-
-}
-
-.but_del_add > .btn_del:after {
-  content: "";
-  position: relative;
-  top: 5px;
-  left: 1px;
-  background-image: url("../../assets/del.png");
-  cursor: pointer;
-  background-size: cover;
-  width: 20px;
-  height: 20px;
-  z-index: 3;
-  display: inline-block;
-}
-
-.but_del_add > .btn_add {
-  font-family: "FreeSans";
-  border-radius: 3px;
-  margin: 5px;
-  border: 1px solid #FFA500;
-  background: #FFA500;
-  color: #000;
-  box-shadow: 0 0 3px 0 #FFA500;
-  font-size: 15px;
-  padding: 3px;
-}
-
-.but_del_add > .btn_add:after {
-  content: "";
-  position: relative;
-  top: 5px;
-  left: 1px;
-  background-image: url("../../assets/add.png");
-  cursor: pointer;
-  background-size: cover;
-  width: 20px;
-  height: 20px;
-  z-index: 3;
-  display: inline-block;
 }
 
 .show-time {
@@ -141,8 +86,6 @@ nav {
   justify-content: center;
   align-items: center;
   text-align: center;
-  /*background:url("http://webmastermix.ru/images/creation-site/lessons-html/spiski-v-html/spiski-v-html.png") 50% no-repeat;
-  background-size: cover;*/
   top: 0;
   left: 0;
   right: 0;
@@ -154,34 +97,35 @@ nav {
 .modal {
   display: flex;
   flex-direction: column;
-  width: 50vh;
-  height: 55vh;
+  width: 300px;
+  height: 330px;
   position: absolute;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: #1E90FF;
-  top: 30%;
-  left: 30%;
+  background: rgb(209, 209, 209);
+  top: 20%;
+  left: 40%;
+  margin-right: -60%;
   border-radius: 3px;
-  border: 1px solid #1E90FF;
-  box-shadow: 0 0 3px 0 #1E90FF;
+  border: 1px solid #D1D1D1;
+  box-shadow: 0 0 3px 0 #000000;
 
-}
-
-.modal-input {
-  width: 50%;
-  padding: 3px;
-  border: 1px solid black;
-  background: white;
-  cursor: pointer;
-  border-radius: 3px;
 }
 
 .but_modal_table {
   display: flex;
-  justify-content: center;
-  width: 100%;
+  justify-content: space-between;
+  margin-top: 15px;
+  width: 75%;
+}
+
+.but_cancel{
+  width: 110px;
+}
+
+.but_pick{
+  width: 110px;
 }
 
 h3 {
@@ -238,13 +182,16 @@ h3 {
 .modal_tabel {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
   .modal-input {
-    width: 50%;
+    width: 70%;
     display: inline-block;
-    margin: 10px;
+    margin: 5px;
+    border: 1px solid black;
+    background: white;
+    cursor: pointer;
+    border-radius: 3px;
   }
 }
 
@@ -257,3 +204,13 @@ td {
   position: relative;
   top: 7px;
 }
+
+//.errorMess {
+//  .item-inner {
+//    border-bottom: none !important;
+//    .input-wrapper{
+//      max-height: 25px !important;
+//
+//    }
+//  }
+//}

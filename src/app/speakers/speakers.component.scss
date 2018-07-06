@@ -1,70 +1,71 @@
 
-.name{
-  font-size: 25px;
-  color: #000000;
-}
-.header{
+header {
+  padding-left: 2%;
+  padding-right: 1%;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+  height: 70px;
+  background: rgba(0, 0, 0, 0.18);
+  font-size: 1.1em;
+}
+
+a {
+  color: #4b4b4b;
+}
+
+a:hover {
+  color: #ffff;
+  text-decoration: none;
+}
+
+.active_link {
+  border-bottom: solid 2px #ffffff;
+  padding-left: 1%;
+  padding-right: 1%;
+  color: black;
 
 }
+
+button {
+  width: 5%;
+  border: solid 1px black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 35px;
+}
+
+button:hover {
+  cursor: pointer;
+  color: white;
+
+  border: solid 1px white;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 50%;
+}
+
+.img_btn {
+  width: 20px;
+}
+
+.action_button {
+  width: 100px;
+}
+
 .exit {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-}
-.navbar{
-  padding: 1rem;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-.bg-light{
-  background:	#1E90FF	!important;
-}
-.active{
-  font-size: 18px;
-  color: white;
-  border-bottom: 1px solid white;
-}
-.btn-primary{
-  background: none !important;
-  border: 1px solid #212121 ;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  font-size: 14px;
-  padding: 0 5px;
-  height: 40px;
-}
-.btn-primary:after{
-  content: "";
-  position: relative;
-  top: 3px;
-  left: 5px;
-  cursor: pointer;
-  background-size: cover;
-  z-index: 3;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-}
-.menu {
-  display: flex;
-  flex-direction: row;
-
-  .navbar-nav{
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    .nav-link{
-      font-size: 18px;
-      color: white;
-    }
-    .nav-item:hover{
-      font-size: 18px;
-      color: white;
-      border-bottom: 1px solid white;
-    }
-  }
 }
 
 .container {
@@ -72,62 +73,10 @@
   flex-direction: column;
   margin: 30px;
   .but_del_add {
+    width: 25%;
     display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    margin-bottom: 20px;
+    justify-content: space-between;
   }
-}
-.but_del_add>.btn_del{
-  font-family: "FreeSans";
-  border-radius: 3px;
-  margin: 5px;
-  border:1px solid #FFA500;
-  background: #FFA500;
-  color: #000;
-  box-shadow: 0 0 3px 0 #FFA500;
-  font-size: 15px;
-  padding: 3px;
-
-}
-.but_del_add>.btn_del:after{
-  content: "";
-  position: relative;
-  top: 5px;
-  left: 1px;
-  background-image: url("../../assets/del.png");
-  cursor: pointer;
-  background-size: cover;
-  width: 20px;
-  height: 20px;
-  z-index: 3;
-  display: inline-block;
-}
-
-.but_del_add>.btn_add {
-  font-family: "FreeSans";
-  border-radius: 3px;
-  margin: 5px;
-  border:1px solid #FFA500;
-  background: #FFA500;
-  color: #000;
-  box-shadow: 0 0 3px 0 #FFA500;
-  font-size: 15px;
-  padding: 3px;
-}
-
-.but_del_add>.btn_add:after{
-  content: "";
-  position: relative;
-  top: 5px;
-  left: 1px;
-  background-image: url("../../assets/add.png");
-  cursor: pointer;
-  background-size: cover;
-  width: 20px;
-  height: 20px;
-  z-index: 3;
-  display: inline-block;
 }
 
 .show-time {
@@ -137,8 +86,6 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  /*background:url("http://webmastermix.ru/images/creation-site/lessons-html/spiski-v-html/spiski-v-html.png") 50% no-repeat;
-  background-size: cover;*/
   top: 0;
   left: 0;
   right: 0;
@@ -146,157 +93,43 @@
   padding: 100px;
   opacity: 0.9;
 }
-.mod_show_time {
-  background: #1E90FF;
-  border:1px solid #1E90FF;
-  border-radius: 3px;
-  opacity: 1;
-  color: black;
-  font-size: 15px !important;
-  padding: 10px;
-  height: 30vh;
-  width: 45vh;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 0 3px 0 #1E90FF;
-  /* justify-content: center; */
-  align-items: center;
-  justify-content: space-around;
-  .but_modal {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    button {
-      width: 50%;
-      margin: 5px;
-      cursor: pointer;
-    }
-  }
-}
-
-
-.modal-input{
-  width: 50%;
-  cursor: pointer;
-}
 
 .modal {
   display: flex;
   flex-direction: column;
-  width: 50vh;
-  height: 55vh;
+  width: 300px;
+  height: 330px;
   position: absolute;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: #1E90FF;
-  top: 30%;
-  left: 30%;
+  background: rgb(209, 209, 209);
+  top: 20%;
+  left: 40%;
+  margin-right: -60%;
   border-radius: 3px;
-  border: 1px solid #1E90FF;
-  box-shadow: 0 0 3px 0 #1E90FF;
+  border: 1px solid #D1D1D1;
+  box-shadow: 0 0 3px 0 #000000;
 
 }
 
-.modal-input {
-  width: 100%;
-  padding: 3px;
-  border: 1px solid black;
-  background: white;
-  cursor: pointer;
-  border-radius: 3px;
-}
-.but_modal_table{
+.but_modal_table {
   display: flex;
-  justify-content: center;
-  width: 100%;
+  justify-content: space-between;
+  margin-top: 15px;
+  width: 75%;
 }
 
-.modal-label {
-  margin-bottom: 0;
-}
-.errorMess {
-  .item-inner {
-    border-bottom: none !important;
-    .input-wrapper{
-      max-height: 25px !important;
-
-    }
-  }
+.but_cancel{
+  width: 110px;
 }
 
-.mod_show_header {
-  background: #1E90FF;
-  border:1px solid  #1E90FF;
-  border-radius: 3px;
-  opacity: 1;
-  color: black;
-  font-size: 15px !important;
-  padding: 10px;
-  height: 25vh;
-  width: 40vh;
-  display: flex;
-  flex-direction: column;
-  box-shadow: 0 0 3px 0 #1E90FF;
-  /* justify-content: center; */
-  align-items: center;
-  justify-content: space-around;
-  .but_modal {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    button {
-      width: 50%;
-      margin: 5px;
-      cursor: pointer;
-    }
-  }
+.but_pick{
+  width: 110px;
 }
-h3{
+
+h3 {
   font-size: 25px;
-}
-
-
-.but_cancel, .but_pick{
-  font-family: "FreeSans";
-  border-radius: 3px;
-  margin: 5px;
-  border:1px solid #FFA500;
-  background: #FFA500;
-  color: #000;
-  box-shadow: 0 0 3px 0 #FFA500;
-  font-size: 15px;
-  padding: 3px;
-  cursor: pointer;
-}
-
-.but_cancel:after{
-  content: "";
-  position: relative;
-  top: 5px;
-  left: 5px;
-  background-image: url("../../assets/cansel.png");
-  cursor: pointer;
-  background-size: cover;
-  width: 20px;
-  height: 20px;
-  z-index: 3;
-  display: inline-block;
-}
-.but_pick:after{
-  content: "";
-  position: relative;
-  top: 5px;
-  left: 5px;
-  background-image: url("../../assets/done.png");
-  cursor: pointer;
-  background-size: cover;
-  width: 20px;
-  height: 20px;
-  z-index: 3;
-  display: inline-block;
 }
 
 .input_main {
@@ -312,27 +145,30 @@ h3{
 .checkbox {
   display: none;
 }
+
 /* Задаем внешний вид для нашего кастомного чекбокса. Все обязательные свойства прокомментированы, остальные же свойства меняйте по вашему усмотрению */
 .checkbox-custom {
-  position: relative;      /* Обязательно задаем, чтобы мы могли абсолютным образом позиционировать псевдоэлемент внютри нашего кастомного чекбокса */
-  width: 20px;             /* Обязательно задаем ширину */
-  height: 20px;            /* Обязательно задаем высоту */
-  border: 2px solid #ccc;
+  position: relative; /* Обязательно задаем, чтобы мы могли абсолютным образом позиционировать псевдоэлемент внютри нашего кастомного чекбокса */
+  width: 20px; /* Обязательно задаем ширину */
+  height: 20px; /* Обязательно задаем высоту */
+  border: 2px solid black;
   border-radius: 3px;
   cursor: pointer;
   top: 6px;
 }
+
 /* Кастомный чекбокс и лейбл центрируем по вертикали. Если вам это не требуется, то вы можете убрать свойство vertical-align: middle из данного правила, но свойство display: inline-block обязательно должно быть */
 .checkbox-custom,
 .label {
   display: inline-block;
   vertical-align: middle;
 }
+
 /* Если реальный чекбокс у нас отмечен, то тогда добавляем данный признак и к нашему кастомному чекбоксу  */
 .checkbox:checked + .checkbox-custom::before {
-  content: "";             /* Добавляем наш псевдоэлемент */
-  display: block;			 /* Делаем его блочным элементом */
-  position: absolute;      /* Позиционируем его абсолютным образом */
+  content: ""; /* Добавляем наш псевдоэлемент */
+  display: block; /* Делаем его блочным элементом */
+  position: absolute; /* Позиционируем его абсолютным образом */
   /* Задаем расстояние от верхней, правой, нижней и левой границы */
   top: -2px;
   left: -2px;
@@ -343,29 +179,38 @@ h3{
   height: 20px;
 }
 
-.modal_tabel{
+.modal_tabel {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
-  .modal-input{
-    width: 50%;
+  .modal-input {
+    width: 70%;
     display: inline-block;
-    margin: 10px;
+    margin: 5px;
+    border: 1px solid black;
+    background: white;
+    cursor: pointer;
+    border-radius: 3px;
   }
 }
 
-.table td{
+table {
+  margin-top: 5%;
   position: relative;
-  top:7px;
-  text-align: center;
 }
 
-.table th{
-  text-align: center;
+td {
+  position: relative;
+  top: 7px;
+}
 
-}
-.PIB{
-  width: 25%;
-}
+//.errorMess {
+//  .item-inner {
+//    border-bottom: none !important;
+//    .input-wrapper{
+//      max-height: 25px !important;
+//
+//    }
+//  }
+//}

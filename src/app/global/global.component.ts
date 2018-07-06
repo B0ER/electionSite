@@ -15,30 +15,22 @@ export class GlobalComponent implements OnInit {
   patr: string;
   consig: string;
   address: string;
-  showHeaderModal: boolean;
-  showTimeModal: boolean;
-  selectedTime: number;
   selectedAll: any;
   showModal: boolean;
-  selectedValue: string;
-  headArr: any;
+
+  // @ViewChild('valid_name') valid_name;
+  // @ViewChild('valid_lastName') valid_lastName;
+  // @ViewChild('vpatr') vpatr;
+  // @ViewChild('vconsig') vconsig;
+  // @ViewChild('vaddress') vaddress;
 
   constructor(private apiService: ApiService) {
     this.showModal = false;
-    this.showTimeModal = false;
-    this.headArr = ['head1', 'head2', 'head3', 'head4', 'head5', 'head6', 'head7', 'head8'];
   }
 
   ngOnInit() {
     this.loadUser();
   }
-
-  @ViewChild('valid_name') valid_name;
-  @ViewChild('valid_lastName') valid_lastName;
-  @ViewChild('vpatr') vpatr;
-  @ViewChild('vconsig') vconsig;
-  @ViewChild('vaddress') vaddress;
-
 
   closeModal() {
     this.name = '';
@@ -54,28 +46,6 @@ export class GlobalComponent implements OnInit {
     //   this.userArray[i].checked = this.selectedAll;
     // }
     // console.log('items data', this.userArray);
-  }
-
-  pickTime(selectedTime) {
-    console.log('selected time', selectedTime);
-    this.closeTimeModal();
-  }
-
-  closeTimeModal() {
-    this.showTimeModal = false;
-  }
-
-  showHeader() {
-    this.showHeaderModal = true;
-  }
-
-  closeHeadModal() {
-    this.showHeaderModal = false;
-  }
-
-  pickHead(head) {
-    console.log('head', head);
-    this.closeHeadModal();
   }
 
   deleteSelected() {
@@ -100,10 +70,6 @@ export class GlobalComponent implements OnInit {
     };
     this.userArray.push(dataObj);
     this.closeModal();
-  }
-
-  showTime() {
-    this.showTimeModal = true;
   }
 
   addItem() {

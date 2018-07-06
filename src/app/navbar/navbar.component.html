@@ -10,3 +10,11 @@
 
   <button type="button" routerLink="/" class="btn_exit">Вихід <img class="img_btn" src="../assets/exit.png" alt=""></button>
 </header>
+
+<div *ngIf="showTimeModal" class="show-time">
+  <app-show-time></app-show-time>
+</div>
+
+<div *ngIf="showHeaderModal" class="show-time">
+  <app-director></app-director>
+</div>

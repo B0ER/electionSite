@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-show-time',
@@ -6,10 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./show-time.component.scss']
 })
 export class ShowTimeComponent implements OnInit {
+  showTimeModal: boolean;
+  selectedTime: number;
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
+    this.showTimeModal = false;
   }
+
+  pickTime(selectedTime) {
+    this.closeTimeModal();
+  }
+
+  closeTimeModal() {
+    this.showTimeModal = false;
+  }
+
 
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ApiService} from '../api.service';
 
 @Component({
   selector: 'app-ask',
@@ -11,24 +12,18 @@ export class AskComponent implements OnInit {
   ask: string;
   des: string;
   notuser: string;
-  showHeaderModal: boolean;
-  showTimeModal: boolean;
-  selectedTime: number;
   selectedAll: any;
   itemData: any[];
   showModal: boolean;
-  selectedValue: string;
-  headArr: any;
 
 
-  constructor() {
+  constructor(private apiService: ApiService) {
     this.itemData = [];
     this.showModal = false;
-    this.showTimeModal = false;
-    this.headArr = ['head1', 'head2', 'head3', 'head4', 'head5', 'head6', 'head7', 'head8'];
   }
 
   ngOnInit() {
+    this.loadQuestion();
   }
 
   closeModal() {
@@ -43,28 +38,6 @@ export class AskComponent implements OnInit {
       this.itemData[i].checked = this.selectedAll;
     }
     console.log('items data', this.itemData);
-  }
-
-  pickTime(selectedTime) {
-    console.log('selected time', selectedTime);
-    this.closeTimeModal();
-  }
-
-  closeTimeModal() {
-    this.showTimeModal = false;
-  }
-
-  showHeader() {
-    this.showHeaderModal = true;
-  }
-
-  closeHeadModal() {
-    this.showHeaderModal = false;
-  }
-
-  pickHead(head) {
-    console.log('head', head);
-    this.closeHeadModal();
   }
 
   deleteSelected() {
@@ -89,12 +62,13 @@ export class AskComponent implements OnInit {
     this.closeModal();
   }
 
-  showTime() {
-    this.showTimeModal = true;
-  }
-
   addItem() {
     this.showModal = true;
   }
 
+  private loadQuestion() {
+    this.apiService.getQuestions().subscribe((data: Array<object>) => {
+      this.itemData = data;
+    });
+  }
 }

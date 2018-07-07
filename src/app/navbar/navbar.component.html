@@ -1,9 +1,9 @@
 <header>
   <nav class="row">
-    <a class="active_link" routerLink="/global"> <div>Користувачі</div></a>
-    <a routerLink="/speakers"> <div>Виступаючі</div></a>
-    <a routerLink="/ask"> <div>Питання</div></a>
-    <a routerLink="/photo"> <div>Слайди</div></a>
+    <a routerLink="/global" #userLink> <div>Користувачі</div></a>
+    <a routerLink="/speakers" #speakerLink> <div>Виступаючі</div></a>
+    <a routerLink="/ask" #questionLink> <div>Питання</div></a>
+    <a routerLink="/photo" #photoLink> <div>Слайди</div></a>
     <a [routerLink]="" (click)="showDirectorModal()"> <div>Встановити голову</div></a>
     <a [routerLink]="" (click)="showTimeModal()"> <div>Встановити час голосування</div></a>
   </nav>

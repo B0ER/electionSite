@@ -92,3 +92,18 @@ nav {
   justify-content: space-between;
   width: 100%;
 }
+
+.show-time {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 100px;
+  opacity: 0.9;
+}

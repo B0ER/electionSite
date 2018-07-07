@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {ShareService} from '../../share.service';
 
 @Component({
   selector: 'app-show-time',
@@ -6,14 +7,17 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./show-time.component.scss']
 })
 export class ShowTimeComponent implements OnInit {
-  showTimeModal: boolean;
+  visible: boolean;
   selectedTime: number;
 
-  constructor() {
+  constructor(private shareService: ShareService) {
   }
 
   ngOnInit() {
-    this.showTimeModal = false;
+    this.visible = false;
+    this.shareService.showTimeModalEmitter.subscribe(isVisible => {
+      this.visible = isVisible;
+    });
   }
 
   pickTime(selectedTime) {
@@ -21,8 +25,6 @@ export class ShowTimeComponent implements OnInit {
   }
 
   closeTimeModal() {
-    this.showTimeModal = false;
+    this.visible = false;
   }
-
-
 }

@@ -1,32 +1,21 @@
-.mod_show_header {
-  background: #1E90FF;
-  border:1px solid  #1E90FF;
-  border-radius: 3px;
-  opacity: 1;
-  color: black;
-  font-size: 15px !important;
-  padding: 10px;
-  height: 25vh;
-  width: 40vh;
+.modal {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 3px 0 #1E90FF;
-  /* justify-content: center; */
+  width: 290px;
+  height: 190px;
+  position: absolute;
+  justify-content: center;
   align-items: center;
-  justify-content: space-around;
-  .but_modal {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    justify-content: center;
-    button {
-      width: 50%;
-      margin: 5px;
-      cursor: pointer;
-    }
-  }
-}
+  text-align: center;
+  background: rgb(209, 209, 209);
+  top: 20%;
+  left: 40%;
+  margin-right: -60%;
+  border-radius: 3px;
+  border: 1px solid #D1D1D1;
+  box-shadow: 0 0 3px 0 #000000;
 
+}
 .input_main {
   width: 70%;
   padding: 3px;
@@ -36,44 +25,52 @@
   border-radius: 3px;
 }
 
-
-.but_cancel, .but_pick{
-  font-family: "FreeSans";
-  border-radius: 3px;
-  margin: 5px;
-  border:1px solid #FFA500;
-  background: #FFA500;
-  color: #000;
-  box-shadow: 0 0 3px 0 #FFA500;
-  font-size: 15px;
-  padding: 3px;
-  cursor: pointer;
+.but_cancel{
+  width: 110px;
 }
 
-.but_cancel:after{
-  content: "";
-  position: relative;
-  top: 5px;
-  left: 5px;
-  background-image: url("../../../assets/cancel.png");
+.but_pick{
+  width: 110px;
+}
+
+
+.show-time {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 100px;
+}
+
+button {
+  width: 5%;
+  border: solid 1px black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 35px;
+}
+
+.but_modal {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  width: 75%;
+}
+
+button:hover {
   cursor: pointer;
-  background-size: cover;
+  color: white;
+  border: solid 1px white;
+}
+
+.img_btn {
   width: 20px;
-  height: 20px;
-  z-index: 3;
-  display: inline-block;
 }
-.but_pick:after{
-  content: "";
-  position: relative;
-  top: 5px;
-  left: 5px;
-  background-image: url("../../../assets/done.png");
-  cursor: pointer;
-  background-size: cover;
-  width: 20px;
-  height: 20px;
-  z-index: 3;
-  display: inline-block;
-}
-

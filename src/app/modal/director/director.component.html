@@ -1,10 +1,12 @@
-<div class="mod_show_header" >
-  <h3>Виберіть голову</h3>
-  <select [(ngModel)]="selectedValue" class="input_main">
-    <option *ngFor="let c of headArr" [ngValue]="c">{{c}}</option>
-  </select>
-  <div class="but_modal">
-    <button class="but_cancel" (click)="closeHeadModal()">Відмінити</button>
-    <button class="but_pick" (click)="pickHead(selectedValue)">Обрати</button>
+<div [hidden]="!visible" class="show-time">
+  <div class="modal">
+    <h3>Виберіть голову</h3>
+    <select [(ngModel)]="selectedValue" class="input_main">
+      <option *ngFor="let c of headArr" [ngValue]="c">{{c}}</option>
+    </select>
+    <div class="but_modal">
+      <button class="but_cancel" (click)="closeHeadModal()">Відмінити</button>
+      <button class="but_pick" (click)="pickHead(selectedValue)">Обрати</button>
+    </div>
   </div>
 </div>

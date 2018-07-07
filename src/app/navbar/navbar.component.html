@@ -1,20 +1,12 @@
 <header>
-  <nav>
-    <a class="active active_link" routerLink="/global"> <div>Користувачі</div></a>
+  <nav class="row">
+    <a class="active_link" routerLink="/global"> <div>Користувачі</div></a>
     <a routerLink="/speakers"> <div>Виступаючі</div></a>
     <a routerLink="/ask"> <div>Питання</div></a>
     <a routerLink="/photo"> <div>Слайди</div></a>
-    <a [routerLink]="" (click)="showHeader()"> <div>Встановити голову</div></a>
-    <a [routerLink]="" (click)="showTime()"> <div>Встановити час голосування</div></a>
+    <a [routerLink]="" (click)="showDirectorModal()"> <div>Встановити голову</div></a>
+    <a [routerLink]="" (click)="showTimeModal()"> <div>Встановити час голосування</div></a>
   </nav>
 
   <button type="button" routerLink="/" class="btn_exit">Вихід <img class="img_btn" src="../assets/exit.png" alt=""></button>
 </header>
-
-<div *ngIf="showTimeModal" class="show-time">
-  <app-show-time></app-show-time>
-</div>
-
-<div *ngIf="showHeaderModal" class="show-time">
-  <app-director></app-director>
-</div>

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ShareService} from '../share.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -7,91 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  name: string;
-  position: string;
-  shortDes: string;
-  showHeaderModal: boolean;
-  showTimeModal: boolean;
-  selectedTime: number;
-  selectedAll: any;
-  itemData: any[];
-  showModal: boolean;
-  selectedValue: string;
-  headArr: any;
-
-  constructor() {
-    this.itemData = [];
-    this.showModal = false;
-    this.showTimeModal = false;
-    this.headArr = ['head1', 'head2', 'head3', 'head4', 'head5', 'head6', 'head7', 'head8'];
+  constructor(private shareService: ShareService, private router: Router) {
   }
+
 
   ngOnInit() {
-  }
-
-  closeModal() {
-    this.name = '';
-    this.position = '';
-    this.shortDes = '';
-    this.showModal = false;
-  }
-
-  selectAll() {
-    for (let i = 0; i < this.itemData.length; i++) {
-      this.itemData[i].checked = this.selectedAll;
+    switch (this.router.url) {
+      case '/global':
+        break;
+      case '/ask':
+        break;
+      case '/speakers':
+        break;
+      case '/photo':
+        break;
     }
-    console.log('items data', this.itemData);
   }
 
-  pickTime(selectedTime) {
-    console.log('selected time', selectedTime);
-    this.closeTimeModal();
+  showTimeModal() {
+    this.shareService.showTimeModal();
   }
 
-  closeTimeModal() {
-    this.showTimeModal = false;
-  }
-
-  showHeader() {
-    this.showHeaderModal = true;
-  }
-
-  closeHeadModal() {
-    this.showHeaderModal = false;
-  }
-
-  pickHead(head) {
-    console.log('head', head);
-    this.closeHeadModal();
-  }
-
-  deleteSelected() {
-    const data = [];
-    for (let i = 0; i < this.itemData.length; i++) {
-      if (this.itemData[i].checked === false) {
-        data.push(this.itemData[i]);
-      }
-    }
-    this.selectedAll = '';
-    this.itemData = data;
-  }
-
-  saveItem(name, position, shortDes) {
-    const dataObj = {
-      name: name,
-      position: position,
-      shortDes: shortDes,
-      checked: false
-    };
-    this.itemData.push(dataObj);
-    this.closeModal();
-  }
-
-  showTime() {
-    this.showTimeModal = true;
-  }
-
-  addItem() {
-    this.showModal = true;
+  showDirectorModal() {
+    this.shareService.showDirectorModal();
   }
 }

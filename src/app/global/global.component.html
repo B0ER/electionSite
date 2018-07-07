@@ -4,11 +4,11 @@
 <div class="container">
   <div class="but_del_add">
     <button type="button" class="action_button" (click)="deleteSelected()">Видалити</button>
-    <button type="button" class=" action_button" (click)="addItem()">Додати</button>
+    <button type="button" class="action_button" (click)="addItem()">Додати</button>
   </div>
 
   <div *ngIf="showModal" class="modal">
-    <div class="modal_tabel">
+    <div class="modal_table">
       <h3>Data</h3>
 
       <input class="modal-input" placeholder="Ім'я"  [(ngModel)]="name" id="name" type="text" #valid_name>

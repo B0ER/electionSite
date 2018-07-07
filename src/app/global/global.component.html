@@ -1,4 +1,3 @@
-
 <app-navbar></app-navbar>
 
 <div class="container">
@@ -11,14 +10,15 @@
     <div class="modal_table">
       <h3>Data</h3>
 
-      <input class="modal-input" placeholder="Ім'я"  [(ngModel)]="name" id="name" type="text" #valid_name>
+      <input class="modal-input" placeholder="Ім'я" [(ngModel)]="name" id="name" type="text" #valid_name>
 
-     <!-- <div *ngIf="errorName" col-lg-12 col-md-6 class="errorMess">
-        <p class="err">Name can not contain digits!</p>
-      </div>-->
+      <!-- <div *ngIf="errorName" col-lg-12 col-md-6 class="errorMess">
+         <p class="err">Name can not contain digits!</p>
+       </div>-->
 
 
-      <input class="modal-input" placeholder="Прізвище" [(ngModel)]="lastName" id="last-name" type="text" #valid_lastName>
+      <input class="modal-input" placeholder="Прізвище" [(ngModel)]="lastName" id="last-name" type="text"
+             #valid_lastName>
 
       <!--<div *ngIf="errorLastName" col-lg-12 col-md-6 class="errorMess">
         <p class="err">Name can not contain digits!</p>
@@ -31,11 +31,14 @@
       <input class="modal-input" placeholder="Партія" [(ngModel)]="consig" id="consig" type="text" #vconsig>
 
 
-      <input class="modal-input" placeholder="MAC-адрес" [(ngModel)]="address" id="address" type="text"  #vaddress>
+      <input class="modal-input" placeholder="MAC-адрес" [(ngModel)]="address" id="address" type="text" #vaddress>
 
-      <div class="but_modal_table" >
-        <button class="but_cancel" (click)="closeModal()">Відмінити<img class="img_btn" src="../assets/cancel.png" alt=""></button>
-        <button class="but_pick" (click)="saveItem(name, lastName, patr, consig, address)">Додати<img class="img_btn" src="../assets/done.png" alt=""></button>
+      <div class="but_modal_table">
+        <button class="but_cancel" (click)="closeModal()">Відмінити<img class="img_btn" src="../assets/cancel.png"
+                                                                        alt=""></button>
+        <button class="but_pick" (click)="saveItem(name, lastName, patr, consig, address)">Додати<img class="img_btn"
+                                                                                                      src="../assets/done.png"
+                                                                                                      alt=""></button>
       </div>
     </div>
   </div>
@@ -43,7 +46,8 @@
   <table class="table table-hover">
     <thead>
     <tr>
-      <th class="col-1"><label><input class="checkbox" [(ngModel)]="selectedAll" (change)="selectAll()" type="checkbox" aria-label="Checkbox for following text input">
+      <th class="col-1"><label><input class="checkbox" [(ngModel)]="selectedAll" (change)="selectAll()" type="checkbox"
+                                      aria-label="Checkbox for following text input">
         <span class="checkbox-custom"></span></label>
       <th class="col-2">Ім'я</th>
       <th class="col-2">Прізвище</th>
@@ -54,7 +58,8 @@
     </thead>
     <tbody>
     <tr *ngFor="let item of userArray">
-      <th class="col-1"><label><input type="checkbox" class="checkbox" [(ngModel)]="item.checked" aria-label="Checkbox for following text input">
+      <th class="col-1"><label><input type="checkbox" class="checkbox" [(ngModel)]="item.checked"
+                                      aria-label="Checkbox for following text input">
         <span class="checkbox-custom"></span></label></th>
       <td class="col-2">{{item.imya}}</td>
       <td class="col-2">{{item.fam}}</td>

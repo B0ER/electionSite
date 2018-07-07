@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ApiService} from '../api.service';
 
 @Component({
   selector: 'app-speakers',
@@ -11,23 +12,17 @@ export class SpeakersComponent implements OnInit {
   name: string;
   position: string;
   shortDes: string;
-  showHeaderModal: boolean;
-  showTimeModal: boolean;
-  selectedTime: number;
   selectedAll: any;
-  itemData: any[];
+  itemData: Array<object>;
   showModal: boolean;
-  selectedValue: string;
-  headArr: any;
 
-  constructor() {
+  constructor(private apiService: ApiService) {
     this.itemData = [];
     this.showModal = false;
-    this.showTimeModal = false;
-    this.headArr = ['head1', 'head2', 'head3', 'head4', 'head5', 'head6', 'head7', 'head8'];
   }
 
   ngOnInit() {
+    this.loadSpeakers();
   }
 
   closeModal() {
@@ -38,62 +33,42 @@ export class SpeakersComponent implements OnInit {
   }
 
   selectAll() {
-    for (let i = 0; i < this.itemData.length; i++) {
-      this.itemData[i].checked = this.selectedAll;
-    }
-    console.log('items data', this.itemData);
-  }
-
-  pickTime(selectedTime) {
-    console.log('selected time', selectedTime);
-    this.closeTimeModal();
-  }
-
-  closeTimeModal() {
-    this.showTimeModal = false;
-  }
-
-  showHeader() {
-    this.showHeaderModal = true;
-  }
-
-  closeHeadModal() {
-    this.showHeaderModal = false;
-  }
-
-  pickHead(head) {
-    console.log('head', head);
-    this.closeHeadModal();
+    // for (let i = 0; i < this.itemData.length; i++) {
+    //   this.itemData[i].checked = this.selectedAll;
+    // }
+    // console.log('items data', this.itemData);
   }
 
   deleteSelected() {
-    const data = [];
-    for (let i = 0; i < this.itemData.length; i++) {
-      if (this.itemData[i].checked === false) {
-        data.push(this.itemData[i]);
-      }
-    }
-    this.selectedAll = '';
-    this.itemData = data;
+    // const data = [];
+    // for (let i = 0; i < this.itemData.length; i++) {
+    //   if (this.itemData[i].checked === false) {
+    //     data.push(this.itemData[i]);
+    //   }
+    // }
+    // this.selectedAll = '';
+    // this.itemData = data;
   }
 
+  //FIO post short_descriptions
   saveItem(name, position, shortDes) {
-    const dataObj = {
-      name: name,
-      position: position,
-      shortDes: shortDes,
-      checked: false
-    };
-    this.itemData.push(dataObj);
-    this.closeModal();
-  }
-
-  showTime() {
-    this.showTimeModal = true;
+    // const dataObj = {
+    //   name: name,
+    //   position: position,
+    //   shortDes: shortDes,
+    //   checked: false
+    // };
+    // this.itemData.push(dataObj);
+    // this.closeModal();
   }
 
   addItem() {
     this.showModal = true;
   }
 
+  private loadSpeakers() {
+    this.apiService.getSpeakers().subscribe((data: Array<object>) => {
+      this.itemData = data;
+    });
+  }
 }

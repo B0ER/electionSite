@@ -1,4 +1,3 @@
-
 <app-navbar></app-navbar>
 
 <div class="container">
@@ -11,35 +10,39 @@
     <div class="modal_table">
       <h3>Data</h3>
 
-      <input class="modal-input" placeholder="ПІБ"  [(ngModel)]="name" id="name" type="text" #valid_name>
+      <input class="modal-input" placeholder="ПІБ" [(ngModel)]="FIO" id="name" type="text" #valid_name>
 
       <!-- <div *ngIf="errorName" col-lg-12 col-md-6 class="errorMess">
          <p class="err">Name can not contain digits!</p>
        </div>-->
 
 
-      <input class="modal-input" placeholder="Посада" [(ngModel)]="position" id="last-name" type="text" #valid_lastName>
+      <input class="modal-input" placeholder="Посада" [(ngModel)]="post" id="last-name" type="text" #valid_lastName>
 
       <!--<div *ngIf="errorLastName" col-lg-12 col-md-6 class="errorMess">
         <p class="err">Name can not contain digits!</p>
       </div>-->
 
 
-      <input class="modal-input" placeholder="Короткий опис" [(ngModel)]="shortDes" id="patr" type="text" #vpatr>
+      <input class="modal-input" placeholder="Короткий опис" [(ngModel)]="short_descriptions" id="patr" type="text" #vpatr>
 
 
-      <div class="but_modal_table" >
-        <button class="but_cancel" (click)="closeModal()">Відмінити<img class="img_btn" src="../assets/cancel.png" alt=""></button>
-        <button class="but_pick" (click)="saveItem(name, position, shortDes)">Додати<img class="img_btn" src="../assets/done.png" alt=""></button>
+      <div class="but_modal_table">
+        <button class="but_cancel" (click)="closeModal()">Відмінити<img class="img_btn" src="../assets/cancel.png"
+                                                                        alt=""></button>
+        <button class="but_pick" (click)="saveItem(FIO, post, short_descriptions)">Додати<img class="img_btn"
+                                                                                         src="../assets/done.png"
+                                                                                         alt=""></button>
       </div>
     </div>
   </div>
 
   <table class="table table-hover">
     <thead>
-    <tr class="row">
+    <tr>
       <th class="col-1"><label>
-        <input class="checkbox" [(ngModel)]="selectedAll" (change)="selectAll()" type="checkbox" aria-label="Обрати всiх">
+        <input class="checkbox" [(ngModel)]="selectedAll" (change)="selectAll()" type="checkbox"
+               aria-label="Обрати всiх">
         <span class="checkbox-custom"></span></label>
       <th class="col-5">Прізвище Ім'я По батькові</th>
       <th class="col-3">Посада</th>
@@ -47,12 +50,13 @@
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let item of itemData" class="row">
-      <th class="col-1"><label><input type="checkbox" class="checkbox" [(ngModel)]="item.checked" aria-label="Обрати всiх">
+    <tr *ngFor="let item of itemData">
+      <th class="col-1"><label><input type="checkbox" class="checkbox" [(ngModel)]="item.checked"
+                                      aria-label="Обрати всiх">
         <span class="checkbox-custom"></span></label></th>
-      <td class="col-5">{{item.name}}</td>
-      <td class="col-3">{{item.position}}</td>
-      <td class="col-3">{{item.shortDes}}</td>
+      <td class="col-5">{{item.FIO}}</td>
+      <td class="col-3">{{item.post}}</td>
+      <td class="col-3">{{item.short_descriptions}}</td>
     </tr>
     </tbody>
   </table>

@@ -42,18 +42,18 @@
   <table class="table table-hover">
     <thead>
     <tr>
-      <th class="col-1"><label><input class="checkbox" [(ngModel)]="selectedAll" (change)="selectAll()" type="checkbox" aria-label="Checkbox for following text input">
+      <th><label><input class="checkbox" [(ngModel)]="selectedAll" (change)="selectAll()" type="checkbox" aria-label="Checkbox for following text input">
         <span class="checkbox-custom"></span></label>
-      <th class="col-8">Зображення</th>
-      <th class="col-3">Власник</th>
+      <th>Зображення</th>
+      <th>Власник</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let item of itemData">
-      <th class="col-1"><label><input type="checkbox" class="checkbox" [(ngModel)]="item.checked" aria-label="Checkbox for following text input">
+      <th><label><input type="checkbox" class="checkbox" [(ngModel)]="item.checked" aria-label="Checkbox for following text input">
         <span class="checkbox-custom"></span></label></th>
-      <td class="col-8"><img src="{{item.image}}"></td>
-      <td class="col-3">{{item.FIO}}</td>
+      <td><img src="{{item.image}}"></td>
+      <td>{{item.FIO}}</td>
     </tr>
     </tbody>
   </table>

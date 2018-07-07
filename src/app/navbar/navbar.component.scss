@@ -23,8 +23,6 @@ a:hover {
 
 .active_link {
   border-bottom: solid 2px #ffffff;
-  padding-left: 1%;
-  padding-right: 1%;
   color: black;
 }
 
@@ -49,10 +47,10 @@ nav {
   justify-content: space-between;
   flex-direction: row;
   padding: 20px;
-  width: 50%;
+  width: 75%;
 }
 
-@media (max-width: 1750px) {
+@media (max-width: 250px) {
   header {
     padding-left: 2%;
     min-width: 400px;

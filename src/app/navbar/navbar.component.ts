@@ -34,6 +34,7 @@ export class NavbarComponent implements OnInit {
     }
   }
 
+
   showTimeModal() {
     this.shareService.showTimeModal();
   }

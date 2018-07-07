@@ -21,4 +21,8 @@ export class ApiService {
   getUsers() {
     return this.httpClient.get(`${this.API_URL}/api.php?table=deputies`);
   }
+
+  getImages() {
+    return this.httpClient.get(`${this.API_URL}/api.php?table=images`);
+  }
 }

@@ -1,13 +1,5 @@
 <app-navbar></app-navbar>
 
-<div *ngIf="showTimeModal" class="show-time">
-<app-show-time></app-show-time>
-</div>
-
-<div *ngIf="showHeaderModal" class="show-time">
-  <app-director></app-director>
-</div>
-
 <div class="container">
   <div class="but_del_add">
     <button type="button" class="action_button" (click)="deleteSelected()">Видалити</button>
@@ -50,18 +42,18 @@
   <table class="table table-hover">
     <thead>
     <tr>
-      <th scope="col"><label><input class="checkbox" [(ngModel)]="selectedAll" (change)="selectAll()" type="checkbox" aria-label="Checkbox for following text input">
+      <th class="col-1"><label><input class="checkbox" [(ngModel)]="selectedAll" (change)="selectAll()" type="checkbox" aria-label="Checkbox for following text input">
         <span class="checkbox-custom"></span></label>
-      <th scope="col">Зображення</th>
-      <th scope="col">Власник</th>
+      <th class="col-8">Зображення</th>
+      <th class="col-3">Власник</th>
     </tr>
     </thead>
     <tbody>
     <tr *ngFor="let item of itemData">
-      <th scope="row"><label><input type="checkbox" class="checkbox" [(ngModel)]="item.checked" aria-label="Checkbox for following text input">
+      <th class="col-1"><label><input type="checkbox" class="checkbox" [(ngModel)]="item.checked" aria-label="Checkbox for following text input">
         <span class="checkbox-custom"></span></label></th>
-      <td>{{item.nameImg}}</td>
-      <td>{{item.owner}}</td>
+      <td class="col-8"><img src="{{item.image}}"></td>
+      <td class="col-3">{{item.FIO}}</td>
     </tr>
     </tbody>
   </table>

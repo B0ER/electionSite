@@ -59,15 +59,19 @@ export class GlobalComponent implements OnInit {
     // this.userArray = data;
   }
 
-  saveItem(name, lastName, patr, consig, address) {
-    const dataObj = {
-      name: name,
-      lastName: lastName,
-      patr: patr,
-      consig: consig,
-      address: address,
+  saveItem(name, lastName, patr, consig, mac) {
+    let dataObj = {
+      id: null,
+      imya: name,
+      fam: lastName,
+      otch: patr,
+      consignment: consig,
+      MAC: mac,
       checked: false
     };
+    this.apiService.insertUser(dataObj).subscribe((response) => {
+      dataObj.id = response['id'];
+    });
     this.userArray.push(dataObj);
     this.closeModal();
   }

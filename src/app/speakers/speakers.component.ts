@@ -52,14 +52,18 @@ export class SpeakersComponent implements OnInit {
 
   //FIO post short_descriptions
   saveItem(name, position, shortDes) {
-    // const dataObj = {
-    //   name: name,
-    //   position: position,
-    //   shortDes: shortDes,
-    //   checked: false
-    // };
-    // this.itemData.push(dataObj);
-    // this.closeModal();
+    let dataObj = {
+      id: null,
+      FIO: name,
+      post: position,
+      short_descriptions: shortDes,
+      checked: false
+    };
+    this.apiService.insertSpeaker(dataObj).subscribe((response) => {
+      dataObj.id = response['id'];
+    });
+    this.itemData.push(dataObj);
+    this.closeModal();
   }
 
   addItem() {

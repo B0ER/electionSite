@@ -1,5 +1,6 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {ApiService} from '../services/api.service';
+import {User} from '../models/user';
 
 @Component({
   selector: 'app-main',
@@ -8,7 +9,8 @@ import {ApiService} from '../services/api.service';
 })
 
 export class GlobalComponent implements OnInit {
-  userArray: Array<object> = [];
+  userArray: Array<User> = [];
+  allIsSelect: boolean;
 
   name: string;
   lastName: string;
@@ -18,14 +20,9 @@ export class GlobalComponent implements OnInit {
   selectedAll: any;
   showModal: boolean;
 
-  // @ViewChild('valid_name') valid_name;
-  // @ViewChild('valid_lastName') valid_lastName;
-  // @ViewChild('vpatr') vpatr;
-  // @ViewChild('vconsig') vconsig;
-  // @ViewChild('vaddress') vaddress;
-
   constructor(private apiService: ApiService) {
     this.showModal = false;
+    this.allIsSelect = false;
   }
 
   ngOnInit() {
@@ -42,33 +39,29 @@ export class GlobalComponent implements OnInit {
   }
 
   selectAll() {
-    // for (let i = 0; i < this.userArray.length; i++) {
-    //   this.userArray[i].checked = this.selectedAll;
-    // }
-    // console.log('items data', this.userArray);
+    this.allIsSelect = !this.allIsSelect;
+    this.userArray.forEach((item) => {
+      item.checked = this.allIsSelect;
+    });
   }
 
   deleteSelected() {
-    // const data = [];
-    // for (let i = 0; i < this.userArray.length; i++) {
-    //   if (this.userArray[i].checked === false) {
-    //     data.push(this.userArray[i]);
-    //   }
-    // }
-    // this.selectedAll = '';
-    // this.userArray = data;
+    this.userArray = this.userArray.filter((obj) => {
+      if (obj.checked === true) {
+        this.apiService.deleteUser(obj).subscribe();
+        return false;
+      }
+      return true;
+    });
   }
 
   saveItem(name, lastName, patr, consig, mac) {
-    let dataObj = {
-      id: null,
-      imya: name,
-      fam: lastName,
-      otch: patr,
-      consignment: consig,
-      MAC: mac,
-      checked: false
-    };
+    let dataObj = new User();
+    dataObj.imya = name;
+    dataObj.fam = lastName;
+    dataObj.otch = patr;
+    dataObj.consignment = consig;
+    dataObj.MAC = mac;
     this.apiService.insertUser(dataObj).subscribe((response) => {
       dataObj.id = response['id'];
     });
@@ -81,7 +74,7 @@ export class GlobalComponent implements OnInit {
   }
 
   private loadUser() {
-    this.apiService.getUsers().subscribe((data: Array<object>) => {
+    this.apiService.getUsers().subscribe((data: Array<User>) => {
       this.userArray = data;
       console.log('Data is set');
     });

@@ -46,4 +46,8 @@ export class ApiService {
   deleteQuestion(question: Question) {
     return this.httpClient.post(`${this.API_URL}/deleteQuestion.php`, question);
   }
+
+  deleteUser(user: User) {
+    return this.httpClient.post(`${this.API_URL}/deleteUser.php`, user);
+  }
 }

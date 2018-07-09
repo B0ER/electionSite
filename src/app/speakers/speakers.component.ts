@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../services/api.service';
+import {User} from '../models/user';
+import {Question} from '../models/question';
+import {Speaker} from '../models/speaker';
 
 @Component({
   selector: 'app-speakers',
@@ -13,12 +16,14 @@ export class SpeakersComponent implements OnInit {
   position: string;
   shortDes: string;
   selectedAll: any;
-  itemData: Array<object>;
+  itemData: Array<Speaker>;
   showModal: boolean;
+  allIsSelect: boolean;
 
   constructor(private apiService: ApiService) {
     this.itemData = [];
     this.showModal = false;
+    this.allIsSelect = false;
   }
 
   ngOnInit() {
@@ -32,38 +37,35 @@ export class SpeakersComponent implements OnInit {
     this.showModal = false;
   }
 
+
   selectAll() {
-    // for (let i = 0; i < this.itemData.length; i++) {
-    //   this.itemData[i].checked = this.selectedAll;
-    // }
-    // console.log('items data', this.itemData);
+    this.allIsSelect = !this.allIsSelect;
+    this.itemData.forEach((item) => {
+      item.checked = this.allIsSelect;
+    });
   }
 
   deleteSelected() {
-    // const data = [];
-    // for (let i = 0; i < this.itemData.length; i++) {
-    //   if (this.itemData[i].checked === false) {
-    //     data.push(this.itemData[i]);
-    //   }
-    // }
-    // this.selectedAll = '';
-    // this.itemData = data;
+    this.itemData = this.itemData.filter((obj) => {
+      if (obj.checked === true) {
+        this.apiService.deleteSpeaker(obj).subscribe();
+        return false;
+      }
+      return true;
+    });
   }
 
-  //FIO post short_descriptions
-  saveItem(name, position, shortDes) {
-    let dataObj = {
-      id: null,
-      FIO: name,
-      post: position,
-      short_descriptions: shortDes,
-      checked: false
-    };
+  saveItem(FIO, post, short_descriptions) {
+    let dataObj = new Speaker();
+    dataObj.FIO = FIO;
+    dataObj.post = post;
+    dataObj.short_descriptions = short_descriptions;
     this.apiService.insertSpeaker(dataObj).subscribe((response) => {
       dataObj.id = response['id'];
     });
     this.itemData.push(dataObj);
     this.closeModal();
+    console.log(dataObj);
   }
 
   addItem() {
@@ -71,7 +73,7 @@ export class SpeakersComponent implements OnInit {
   }
 
   private loadSpeakers() {
-    this.apiService.getSpeakers().subscribe((data: Array<object>) => {
+    this.apiService.getSpeakers().subscribe((data: Array<Speaker>) => {
       this.itemData = data;
     });
   }

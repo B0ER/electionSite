@@ -50,4 +50,8 @@ export class ApiService {
   deleteUser(user: User) {
     return this.httpClient.post(`${this.API_URL}/deleteUser.php`, user);
   }
+
+  deleteSpeaker(speaker: Speaker) {
+    return this.httpClient.post(`${this.API_URL}/deleteSpeaker.php`, speaker);
+  }
 }

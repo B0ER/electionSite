@@ -19,7 +19,6 @@ export class AskComponent implements OnInit {
   /*Table*/
   questionsArr: Array<Question>;
   showModal: boolean;
-
   allIsSelect: boolean;
 
 

@@ -4,6 +4,7 @@ import {HttpHeaders} from '@angular/common/http';
 import {User} from '../models/user';
 import {Speaker} from '../models/speaker';
 import {Question} from '../models/question';
+import {Photo} from '../models/photo';
 
 @Injectable({
   providedIn: 'root'
@@ -53,5 +54,13 @@ export class ApiService {
 
   deleteSpeaker(speaker: Speaker) {
     return this.httpClient.post(`${this.API_URL}/deleteSpeaker.php`, speaker);
+  }
+
+  insertImage(body){
+    return this.httpClient.post(`${this.API_URL}/insertPhoto.php`, body);
+  }
+
+  deletePhoto(photo: Photo) {
+    return this.httpClient.post(`${this.API_URL}/deletePhoto.php`, photo);
   }
 }

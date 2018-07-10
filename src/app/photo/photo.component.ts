@@ -1,5 +1,9 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../services/api.service';
+import {Speaker} from '../models/speaker';
+import {Photo} from '../models/photo';
+import {FileItem, FileUploader, Headers, ParsedResponseHeaders} from 'ng2-file-upload';
+import {User} from '../models/user';
 
 @Component({
   selector: 'app-photo',
@@ -8,63 +12,81 @@ import {ApiService} from '../services/api.service';
 })
 
 export class PhotoComponent implements OnInit {
-
-  name: string;
-  lastName: string;
-  patr: string;
-  consig: string;
-  address: string;
-  selectedAll: any;
-  itemData: Array<object>;
+  speakerList: Array<Speaker>;
+  idSelectSpeaker: number;
+  itemData: Array<Photo>;
+  allIsSelect: boolean;
   showModal: boolean;
+  addedPhoto: Photo;
+  public uploader: FileUploader = new FileUploader({
+    url: `${this.apiService.API_URL}/insertPhoto.php`,
+    additionalParameter: {id_speaker: null},
+    itemAlias: 'photo'
+  });
 
   constructor(private apiService: ApiService) {
-    this.itemData = [];
     this.showModal = false;
+    this.allIsSelect = false;
+    this.idSelectSpeaker = null;
+    this.addedPhoto = new Photo;
   }
 
   ngOnInit() {
     this.loadImages();
+    this.loadSpeakers();
+
+    this.uploader.onAfterAddingFile = (file) => {
+      file.withCredentials = false;
+    };
+
+    this.uploader.onBuildItemForm = (fileItem: FileItem, form: any) => {
+      if (this.idSelectSpeaker != null) {
+        form.append('idSpeaker', this.idSelectSpeaker);
+      }
+    };
+
+    this.uploader.onSuccessItem = (item: FileItem, response: string, status: number, headers: ParsedResponseHeaders) => {
+      let objResp = JSON.parse(response);
+      this.addedPhoto.id = objResp[0].id;
+      this.addedPhoto.image = objResp[0].url;
+      this.itemData.push(this.addedPhoto);
+      this.addedPhoto = new Photo();
+    };
   }
 
   closeModal() {
-    this.name = '';
-    this.lastName = '';
-    this.patr = '';
-    this.consig = '';
-    this.address = '';
     this.showModal = false;
+    this.addedPhoto = new Photo();
   }
 
   selectAll() {
-    // for (let i = 0; i < this.itemData.length; i++) {
-    //   this.itemData[i].checked = this.selectedAll;
-    // }
-    // console.log('items data', this.itemData);
+    this.allIsSelect = !this.allIsSelect;
+    this.itemData.forEach((item) => {
+      item.checked = this.allIsSelect;
+    });
   }
 
   deleteSelected() {
-    // const data = [];
-    // for (let i = 0; i < this.itemData.length; i++) {
-    //   if (this.itemData[i].checked === false) {
-    //     data.push(this.itemData[i]);
-    //   }
-    // }
-    // this.selectedAll = '';
-    // this.itemData = data;
+    this.itemData = this.itemData.filter((obj) => {
+      if (obj.checked === true) {
+        this.apiService.deletePhoto(obj).subscribe((response) => {
+          console.log(response);
+        });
+        return false;
+      }
+      return true;
+    });
   }
 
-  saveItem(name, lastName, patr, consig, address) {
-    // const dataObj = {
-    //   name: name,
-    //   lastName: lastName,
-    //   patr: patr,
-    //   consig: consig,
-    //   address: address,
-    //   checked: false
-    // };
-    // this.itemData.push(dataObj);
-    // this.closeModal();
+  saveItem() {
+    if (this.idSelectSpeaker != null) {
+      const speaker: Speaker = this.speakerList.filter((item) => {
+        return item.id === this.idSelectSpeaker;
+      })[0];
+      this.addedPhoto.FIO = speaker.FIO;
+      this.addedPhoto.id_speaker = this.idSelectSpeaker;
+      this.uploader.uploadAll();
+    }
   }
 
   addItem() {
@@ -72,8 +94,15 @@ export class PhotoComponent implements OnInit {
   }
 
   private loadImages() {
-    this.apiService.getImages().subscribe((data: Array<object>) => {
+    this.apiService.getImages().subscribe((data: Array<Photo>) => {
       this.itemData = data;
+    });
+  }
+
+  private loadSpeakers() {
+    this.apiService.getSpeakers().subscribe((data: Array<Speaker>) => {
+      this.speakerList = data;
+      console.log(this.speakerList);
     });
   }
 }

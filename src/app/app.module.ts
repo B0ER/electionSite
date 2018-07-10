@@ -14,6 +14,7 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {ShowTimeComponent} from './modal/show-time/show-time.component';
 import {DirectorComponent} from './modal/director/director.component';
 import {HttpClientModule} from '@angular/common/http';
+import {FileSelectDirective, FileUploader, FileUploadModule} from 'ng2-file-upload';
 
 @NgModule({
   declarations: [
@@ -32,8 +33,10 @@ import {HttpClientModule} from '@angular/common/http';
     NgbModule.forRoot(),
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FileUploadModule
   ],
+  exports: [FileUploadModule],
   providers: [],
   bootstrap: [AppComponent]
 })

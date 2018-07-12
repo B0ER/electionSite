@@ -59,16 +59,9 @@ export class PhotoComponent implements OnInit {
     this.addedPhoto = new Photo();
   }
 
-  selectAll() {
-    this.allIsSelect = !this.allIsSelect;
-    this.itemData.forEach((item) => {
-      item.checked = this.allIsSelect;
-    });
-  }
-
-  deleteSelected() {
+  deleteItem(id) {
     this.itemData = this.itemData.filter((obj) => {
-      if (obj.checked === true) {
+      if (obj.id === id) {
         this.apiService.deletePhoto(obj).subscribe((response) => {
           console.log(response);
         });

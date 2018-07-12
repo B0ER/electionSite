@@ -2,7 +2,6 @@
 
 <div class="container">
   <div class="but_del_add">
-    <button type="button" class="action_button" (click)="deleteSelected()">Видалити</button>
     <button type="button" class="action_button" (click)="addItem()">Додати</button>
   </div>
 
@@ -32,7 +31,7 @@
   <div class="card" *ngFor="let item of itemData">
     <img class="img-card" [src]="item.image">
     <div class="middle">
-      <button class="but_delete">Видалити<img class="img_btn" src="../assets/del.png" alt=""></button>
+      <button class="but_delete" (click)="deleteItem(item.id)">Видалити<img class="img_btn" src="../assets/del.png" alt=""></button>
     </div>
     <div class="card-footer">
       <p><b>Власник: {{item.FIO}}</b></p>

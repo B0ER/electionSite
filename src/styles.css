@@ -3,3 +3,158 @@
 body{
   background: rgba(0, 0, 0, 0.18);
 }
+
+.main_container {
+  display: flex;
+  flex-direction: column;
+  min-width: 645px;
+  margin-top: 30px;
+}
+
+.but_del_add {
+  width: 300px;
+  margin-left: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.action_button {
+  width: 100px;
+}
+
+
+.img_btn {
+  width: 20px;
+}
+
+button {
+  width: 5%;
+  border: solid 1px black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 35px;
+}
+
+button:hover {
+  cursor: pointer;
+  color: white;
+
+  border: solid 1px white;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 330px;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: rgb(209, 209, 209);
+  top: 20%;
+  left: 40%;
+  margin-right: -60%;
+  border-radius: 3px;
+  border: 1px solid #D1D1D1;
+  box-shadow: 0 0 3px 0 #000000;
+
+}
+
+.but_modal_table {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  width: 75%;
+}
+
+.but_cancel{
+  width: 110px;
+}
+
+.but_pick{
+  width: 110px;
+}
+
+h3 {
+  font-size: 25px;
+}
+
+.input_main {
+  width: 70%;
+  padding: 3px;
+  border: 1px solid black;
+  background: white;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.modal_table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.modal-input {
+  width: 70%;
+  display: inline-block;
+  margin: 5px;
+  border: 1px solid black;
+  background: white;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+/* Стиль таблиц */
+table {
+  margin-top: 30px;
+  padding: 20px;
+  position: relative;
+}
+
+td {
+  position: relative;
+  top: 7px;
+}
+
+
+/* Скрываем реальный чекбокс */
+.checkbox {
+  display: none;
+}
+
+/* Задаем внешний вид для нашего кастомного чекбокса. Все обязательные свойства прокомментированы, остальные же свойства меняйте по вашему усмотрению */
+.checkbox-custom {
+  position: relative; /* Обязательно задаем, чтобы мы могли абсолютным образом позиционировать псевдоэлемент внютри нашего кастомного чекбокса */
+  width: 20px; /* Обязательно задаем ширину */
+  height: 20px; /* Обязательно задаем высоту */
+  border: 2px solid black;
+  border-radius: 3px;
+  cursor: pointer;
+  top: 6px;
+}
+
+/* Кастомный чекбокс и лейбл центрируем по вертикали. Если вам это не требуется, то вы можете убрать свойство vertical-align: middle из данного правила, но свойство display: inline-block обязательно должно быть */
+.checkbox-custom,
+.label {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* Если реальный чекбокс у нас отмечен, то тогда добавляем данный признак и к нашему кастомному чекбоксу  */
+.checkbox:checked + .checkbox-custom::before {
+  content: ""; /* Добавляем наш псевдоэлемент */
+  display: block; /* Делаем его блочным элементом */
+  position: absolute; /* Позиционируем его абсолютным образом */
+  /* Задаем расстояние от верхней, правой, нижней и левой границы */
+  top: -2px;
+  left: -2px;
+  background-image: url("assets/done.png"); /* Добавляем фон. Если требуется, можете поставить сюда картинку в виде "галочки", которая будет символизировать, что чекбокс отмечен */
+  cursor: pointer;
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+}

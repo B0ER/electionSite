@@ -116,8 +116,12 @@ table {
 
 td {
   position: relative;
-  top: 50%;
-  bottom: 50%;
+  vertical-align: middle;
+}
+
+.table thead th {
+  vertical-align: top;
+  border-bottom: 2px solid #dee2e6;
 }
 
 

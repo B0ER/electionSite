@@ -5,8 +5,6 @@ import {EventEmitter} from '@angular/core';
   providedIn: 'root'
 })
 export class ShareService {
-  static UPDATE_TIMEOUT = 'timeout';
-
   showTimeModalEmitter = new EventEmitter<object>(true);
   showLiderModalEmitter = new EventEmitter<boolean>(true);
   showSessionModalEmitter = new EventEmitter<boolean>(true);

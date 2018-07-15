@@ -3,10 +3,10 @@ import {ShareService} from '../../services/share.service';
 
 @Component({
   selector: 'app-director',
-  templateUrl: './director.component.html',
-  styleUrls: ['./director.component.scss']
+  templateUrl: './lider.component.html',
+  styleUrls: ['./lider.component.scss']
 })
-export class DirectorComponent implements OnInit {
+export class LiderComponent implements OnInit {
   selectedValue: string;
   visible: boolean;
   headArr: any;

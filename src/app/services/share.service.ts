@@ -5,16 +5,19 @@ import {EventEmitter} from '@angular/core';
   providedIn: 'root'
 })
 export class ShareService {
-  showTimeModalEmitter = new EventEmitter<boolean>(true);
+  static UPDATE_TIMEOUT = 'timeout';
+
+  showTimeModalEmitter = new EventEmitter<object>(true);
   showLiderModalEmitter = new EventEmitter<boolean>(true);
   showSessionModalEmitter = new EventEmitter<boolean>(true);
   showConvocationModalEmitter = new EventEmitter<boolean>(true);
+  updateEmitter = new EventEmitter(true);
 
   constructor() {
   }
 
-  public showTimeModal() {
-    this.showTimeModalEmitter.emit(true);
+  public showTimeModal(timeObj) {
+    this.showTimeModalEmitter.emit(timeObj);
   }
 
   public showLiderModal() {
@@ -27,5 +30,9 @@ export class ShareService {
 
   public showSessionModal() {
     this.showSessionModalEmitter.emit(true);
+  }
+
+  public updateAllSettings() {
+    this.updateEmitter.emit();
   }
 }

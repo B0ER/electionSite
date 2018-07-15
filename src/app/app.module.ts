@@ -11,7 +11,7 @@ import {SpeakersComponent} from './speakers/speakers.component';
 import {PhotoComponent} from './photo/photo.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {ShowTimeComponent} from './modal/show-time/show-time.component';
-import {DirectorComponent} from './modal/director/director.component';
+import {LiderComponent} from './modal/lider/lider.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FileUploadModule} from 'ng2-file-upload';
 import {SettingsComponent} from './settings/settings.component';
@@ -28,7 +28,7 @@ import { SessionComponent } from './modal/session/session.component';
     PhotoComponent,
     NavbarComponent,
     ShowTimeComponent,
-    DirectorComponent,
+    LiderComponent,
     SettingsComponent,
     ConvocationComponent,
     SessionComponent

@@ -5,6 +5,7 @@ import {User} from '../models/user';
 import {Speaker} from '../models/speaker';
 import {Question} from '../models/question';
 import {Photo} from '../models/photo';
+import {ShareService} from './share.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ import {Photo} from '../models/photo';
 export class ApiService {
   API_URL = 'http://31.202.52.184:2026';
 
-  constructor(private httpClient: HttpClient) {
+  constructor(private httpClient: HttpClient, private shareService: ShareService) {
   }
 
   getQuestions() {
@@ -66,5 +67,9 @@ export class ApiService {
 
   settingsSite() {
     return this.httpClient.get(`${this.API_URL}/select.php?table=settingSite`);
+  }
+
+  updateTime(selectedTime: number) {
+    return this.httpClient.get(`${this.API_URL}/update.php?time=${selectedTime}`);
   }
 }

@@ -23,6 +23,10 @@ export class SettingsComponent implements OnInit {
     this.mainUserItem = false;
 
     this.loadSettings();
+
+    this.shareService.updateEmitter.subscribe(() => {
+      this.loadSettings();
+    });
   }
 
   ngOnInit() {
@@ -41,7 +45,7 @@ export class SettingsComponent implements OnInit {
   }
 
   showTimeModal() {
-    this.shareService.showTimeModal();
+    this.shareService.showTimeModal(this.timeItem);
   }
 
   showLiderModal() {

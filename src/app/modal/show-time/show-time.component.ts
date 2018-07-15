@@ -26,11 +26,22 @@ export class ShowTimeComponent implements OnInit {
 
   pickTime() {
     this.shareService.updateAllSettings();
-    this.apiService.updateTime(this.selectedTime).subscribe(() => {});
+    this.apiService.updateTime(this.selectedTime).subscribe(() => {
+    });
     this.closeTimeModal();
   }
 
   closeTimeModal() {
     this.visible = false;
+  }
+
+  changeInput() {
+    if (this.selectedTime < 5) {
+      this.selectedTime = 5;
+    }
+
+    if (this.selectedTime > 3600) {
+      this.selectedTime = 3600;
+    }
   }
 }

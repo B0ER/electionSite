@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {ShareService} from '../../services/share.service';
 
 @Component({
-  selector: 'app-director',
-  templateUrl: './director.component.html',
-  styleUrls: ['./director.component.scss']
+  selector: 'app-session',
+  templateUrl: './session.component.html',
+  styleUrls: ['./session.component.scss']
 })
-export class DirectorComponent implements OnInit {
+export class SessionComponent implements OnInit {
   selectedValue: string;
   visible: boolean;
   headArr: any;
@@ -17,8 +17,8 @@ export class DirectorComponent implements OnInit {
 
   ngOnInit() {
     this.visible = false;
-    console.log('ngOnInit directorModal');
-    this.shareService.showLiderModalEmitter.subscribe(isVisible => {
+    console.log('ngOnInit sessionModal');
+    this.shareService.showSessionModalEmitter.subscribe(isVisible => {
       this.visible = isVisible;
     });
   }
@@ -31,4 +31,5 @@ export class DirectorComponent implements OnInit {
     console.log('head', head);
     this.closeHeadModal();
   }
+
 }

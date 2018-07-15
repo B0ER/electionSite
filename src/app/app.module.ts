@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule} from '@angular/forms';
 
 import {AppComponent} from './app.component';
@@ -15,7 +14,9 @@ import {ShowTimeComponent} from './modal/show-time/show-time.component';
 import {DirectorComponent} from './modal/director/director.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FileUploadModule} from 'ng2-file-upload';
-import { SettingsComponent } from './settings/settings.component';
+import {SettingsComponent} from './settings/settings.component';
+import {ConvocationComponent} from './modal/convocation/convocation.component';
+import { SessionComponent } from './modal/session/session.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { SettingsComponent } from './settings/settings.component';
     NavbarComponent,
     ShowTimeComponent,
     DirectorComponent,
-    SettingsComponent
+    SettingsComponent,
+    ConvocationComponent,
+    SessionComponent
   ],
   imports: [
     BrowserModule,

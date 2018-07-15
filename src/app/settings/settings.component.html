@@ -16,21 +16,21 @@
     <td></td>
     <td>
       <div class="td-center">
-        <button class="but_pick" (click)="showDirectorModal()">Закрити скликання</button>
+        <button class="but_pick" (click)="showConvocationModal()">Закрити скликання</button>
       </div>
     </td>
   </tr>
   <tr>
     <td>Сесія</td>
     <td>{{sessionItem.name}}</td>
-    <td *ngIf="sessionItem.isOpen === 1; else unset1">Відкрита</td>
-    <ng-template #unset1>
-      <td>Закрита</td>
-    </ng-template>
+    <td *ngIf="sessionItem.isOpen === 1">Відкрита</td>
+    <td *ngIf="sessionItem.isOpen === 0">Закрита</td>
+    <td *ngIf="sessionItem.isOpen === -1">Помилка з'єднання</td>
+
     <td>
       <div class="td-center">
-        <button class="but_pick" (click)="showDirectorModal()">Створити сесію</button>
-        <button class="but_pick" (click)="showDirectorModal()">Відкрити сесію</button>
+        <button class="but_pick" (click)="showSessionModal()">Створити сесію</button>
+        <button class="but_pick" (click)="showSessionModal()">Відкрити сесію</button>
       </div>
     </td>
   </tr>
@@ -43,7 +43,7 @@
     <td></td>
     <td>
       <div class="td-center">
-        <button class="but_pick" (click)="showDirectorModal()">Обрати</button>
+        <button class="but_pick" (click)="showLiderModal()">Обрати</button>
       </div>
     </td>
   </tr>
@@ -59,3 +59,8 @@
   </tr>
   </tbody>
 </table>
+
+<app-session></app-session>
+<app-convocation></app-convocation>
+<app-show-time></app-show-time>
+<app-director></app-director>

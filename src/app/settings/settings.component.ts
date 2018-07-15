@@ -14,15 +14,13 @@ export class SettingsComponent implements OnInit {
   timeItem: any;
 
   constructor(private apiService: ApiService, private shareService: ShareService) {
-    this.sessionItem = new Object();
-    this.sessionItem.isOpen = 0;
+    this.convocationItem = {};
+    this.sessionItem = {};
+    this.timeItem = {};
+    this.mainUserItem = {};
 
-    this.mainUserItem = new Object();
+    this.sessionItem.isOpen = -1;
     this.mainUserItem = false;
-
-    this.convocationItem = new Object();
-
-    this.timeItem = new Object();
 
     this.loadSettings();
   }
@@ -46,16 +44,15 @@ export class SettingsComponent implements OnInit {
     this.shareService.showTimeModal();
   }
 
-  showDirectorModal() {
-    this.shareService.showDirectorModal();
+  showLiderModal() {
+    this.shareService.showLiderModal();
   }
 
-
-  private actionSession() {
-    console.log('click');
+  showSessionModal() {
+    this.shareService.showSessionModal();
   }
 
-  private actionConvacation() {
-    console.log('click2');
+  showConvocationModal() {
+    this.shareService.showConvocationModal();
   }
 }

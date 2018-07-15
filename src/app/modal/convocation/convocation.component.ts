@@ -1,12 +1,13 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {ShareService} from '../../services/share.service';
 
 @Component({
-  selector: 'app-director',
-  templateUrl: './director.component.html',
-  styleUrls: ['./director.component.scss']
+  selector: 'app-convocation',
+  templateUrl: './convocation.component.html',
+  styleUrls: ['./convocation.component.scss']
 })
-export class DirectorComponent implements OnInit {
+export class ConvocationComponent implements OnInit {
+
   selectedValue: string;
   visible: boolean;
   headArr: any;
@@ -17,8 +18,8 @@ export class DirectorComponent implements OnInit {
 
   ngOnInit() {
     this.visible = false;
-    console.log('ngOnInit directorModal');
-    this.shareService.showLiderModalEmitter.subscribe(isVisible => {
+    console.log('ngOnInit convocationModal');
+    this.shareService.showConvocationModalEmitter.subscribe(isVisible => {
       this.visible = isVisible;
     });
   }

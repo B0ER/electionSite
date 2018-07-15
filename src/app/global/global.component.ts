@@ -76,7 +76,6 @@ export class GlobalComponent implements OnInit {
   private loadUser() {
     this.apiService.getUsers().subscribe((data: Array<User>) => {
       this.userArray = data;
-      console.log('Data is set');
     });
   }
 }

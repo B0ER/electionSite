@@ -111,13 +111,13 @@ h3 {
 /* Стиль таблиц */
 table {
   margin-top: 30px;
-  padding: 20px;
   position: relative;
 }
 
 td {
   position: relative;
-  top: 7px;
+  top: 50%;
+  bottom: 50%;
 }
 
 
@@ -134,7 +134,6 @@ td {
   border: 2px solid black;
   border-radius: 3px;
   cursor: pointer;
-  top: 6px;
 }
 
 /* Кастомный чекбокс и лейбл центрируем по вертикали. Если вам это не требуется, то вы можете убрать свойство vertical-align: middle из данного правила, но свойство display: inline-block обязательно должно быть */

@@ -31,12 +31,12 @@ nav {
   padding-right: 15px;
   padding-left: 15px;
 
-  justify-items: center;
+  justify-items: start;
   align-items: center;
   display: grid;
   grid-column-gap: 20px;
   grid-row-gap: 15px;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
   grid-template-rows: repeat(auto-fit, 1fr);
 
   -ms-grid-columns: minmax(150px, 1fr) minmax(150px, 1fr);

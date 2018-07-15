@@ -56,11 +56,15 @@ export class ApiService {
     return this.httpClient.post(`${this.API_URL}/deleteSpeaker.php`, speaker);
   }
 
-  insertImage(body){
+  insertImage(body) {
     return this.httpClient.post(`${this.API_URL}/insertPhoto.php`, body);
   }
 
   deletePhoto(photo: Photo) {
     return this.httpClient.post(`${this.API_URL}/deletePhoto.php`, photo);
+  }
+
+  settingsSite() {
+    return this.httpClient.get(`${this.API_URL}/select.php?table=settingSite`);
   }
 }

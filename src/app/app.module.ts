@@ -15,6 +15,7 @@ import {ShowTimeComponent} from './modal/show-time/show-time.component';
 import {DirectorComponent} from './modal/director/director.component';
 import {HttpClientModule} from '@angular/common/http';
 import {FileUploadModule} from 'ng2-file-upload';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {FileUploadModule} from 'ng2-file-upload';
     PhotoComponent,
     NavbarComponent,
     ShowTimeComponent,
-    DirectorComponent
+    DirectorComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

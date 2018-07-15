@@ -4,9 +4,8 @@
     <a routerLink="/speakers" #speakerLink> <div>Виступаючі</div></a>
     <a routerLink="/ask" #questionLink> <div>Питання</div></a>
     <a routerLink="/photo" #photoLink> <div>Слайди</div></a>
-    <a [routerLink]="" (click)="showDirectorModal()"> <div>Встановити голову</div></a>
-    <a [routerLink]="" (click)="showTimeModal()"> <div>Встановити час голосування</div></a>
+    <a routerLink="/settings" #settingsLink> <div>Налаштування</div></a>
   </nav>
 
-  <button type="button" routerLink="/" class="btn_exit">Вихід <img class="img_btn" src="../assets/exit.png" alt=""></button>
+  <button type="button" routerLink="/" class="btn_exit">Вихід <img class="img_btn" src="../../assets/exit.png" alt=""></button>
 </header>

@@ -3,7 +3,6 @@ import {ApiService} from '../services/api.service';
 import {Speaker} from '../models/speaker';
 import {Photo} from '../models/photo';
 import {FileItem, FileUploader, Headers, ParsedResponseHeaders} from 'ng2-file-upload';
-import {User} from '../models/user';
 
 @Component({
   selector: 'app-photo',
@@ -95,7 +94,6 @@ export class PhotoComponent implements OnInit {
   private loadSpeakers() {
     this.apiService.getSpeakers().subscribe((data: Array<Speaker>) => {
       this.speakerList = data;
-      console.log(this.speakerList);
     });
   }
 }

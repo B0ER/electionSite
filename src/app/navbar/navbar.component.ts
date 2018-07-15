@@ -12,6 +12,7 @@ export class NavbarComponent implements OnInit {
   @ViewChild('speakerLink') speakerLink: ElementRef;
   @ViewChild('questionLink') questionLink: ElementRef;
   @ViewChild('photoLink') photoLink: ElementRef;
+  @ViewChild('settingsLink') settingsLink: ElementRef;
 
   constructor(private shareService: ShareService, private router: Router, private render: Renderer2) {
   }
@@ -31,15 +32,9 @@ export class NavbarComponent implements OnInit {
       case '/photo':
         this.render.addClass(this.photoLink.nativeElement, 'active_link');
         break;
+      case '/settings':
+        this.render.addClass(this.settingsLink.nativeElement, 'active_link');
+        break;
     }
-  }
-
-
-  showTimeModal() {
-    this.shareService.showTimeModal();
-  }
-
-  showDirectorModal() {
-    this.shareService.showDirectorModal();
   }
 }

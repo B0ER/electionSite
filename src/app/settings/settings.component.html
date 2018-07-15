@@ -1,0 +1,61 @@
+<app-navbar></app-navbar>
+
+<table class="table table-hover">
+  <thead>
+  <tr>
+    <th>Налаштування</th>
+    <th>Значення</th>
+    <th></th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>Скликання</td>
+    <td>{{convocationItem.name}}</td>
+    <td></td>
+    <td>
+      <div class="td-center">
+        <button class="but_pick" (click)="showDirectorModal()">Закрити скликання</button>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>Сесія</td>
+    <td>{{sessionItem.name}}</td>
+    <td *ngIf="sessionItem.isOpen === 1; else unset1">Відкрита</td>
+    <ng-template #unset1>
+      <td>Закрита</td>
+    </ng-template>
+    <td>
+      <div class="td-center">
+        <button class="but_pick" (click)="showDirectorModal()">Створити сесію</button>
+        <button class="but_pick" (click)="showDirectorModal()">Відкрити сесію</button>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>Головний скликання</td>
+    <td *ngIf="mainUserItem != false; else unset2">{{mainUserItem.imya}} {{mainUserItem.fam}} {{mainUserItem.otch}}</td>
+    <ng-template #unset2>
+      <td>Оберіть головного скликання</td>
+    </ng-template>
+    <td></td>
+    <td>
+      <div class="td-center">
+        <button class="but_pick" (click)="showDirectorModal()">Обрати</button>
+      </div>
+    </td>
+  </tr>
+  <tr>
+    <td>Час на голосування</td>
+    <td>{{timeItem.time}} сек</td>
+    <td></td>
+    <td>
+      <div class="td-center">
+        <button class="but_pick" (click)="showTimeModal()">Змінити</button>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { AskComponent } from './ask/ask.component';
 import { SpeakersComponent } from './speakers/speakers.component';
 import {  PhotoComponent  } from './photo/photo.component';
+import {SettingsComponent} from './settings/settings.component';
 
 
 
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'photo',
     component: PhotoComponent
+  },
+  {
+    path: 'settings',
+    component: SettingsComponent
   },
   {
     path: '**',

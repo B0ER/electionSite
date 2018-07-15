@@ -84,4 +84,8 @@ export class ApiService {
   createConvocation(name) {
     return this.httpClient.get(`${this.API_URL}/create.php?convocation=${name}`);
   }
+
+  sessionIsOpen(id: number) {
+    return this.httpClient.get(`${this.API_URL}/update.php?sessionId=${id}`);
+  }
 }

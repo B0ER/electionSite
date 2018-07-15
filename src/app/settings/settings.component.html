@@ -16,13 +16,16 @@
     <td></td>
     <td>
       <div class="td-center">
-        <button class="but_pick" (click)="showConvocationModal()">Закрити скликання</button>  
+        <button class="but_pick" (click)="showConvocationModal()">Закрити скликання</button>
       </div>
     </td>
   </tr>
   <tr>
     <td>Сесія</td>
-    <td>{{sessionItem.name}}</td>
+    <td *ngIf="sessionItem !== false; else other">{{sessionItem.name}}</td>
+    <ng-template #other>
+      <td>Створіть сесію</td>
+    </ng-template>
     <td *ngIf="sessionItem.isOpen === 1">Відкрита</td>
     <td *ngIf="sessionItem.isOpen === 0">Закрита</td>
     <td *ngIf="sessionItem.isOpen === -1">Помилка з'єднання</td>
@@ -30,7 +33,7 @@
     <td>
       <div class="td-center">
         <button class="but_pick" (click)="showSessionModal()">Створити</button>
-        <button class="but_pick" (click)="showSessionModal()">Відкрити</button>
+        <button *ngIf="sessionItem.isOpen === 0" class="but_pick" (click)="openLastSession()">Відкрити</button>
       </div>
     </td>
   </tr>

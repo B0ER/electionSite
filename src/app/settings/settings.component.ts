@@ -8,6 +8,8 @@ import {ShareService} from '../services/share.service';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
+  private static OPEN = 1;
+
   sessionItem: any;
   convocationItem: any;
   mainUserItem: any;
@@ -58,5 +60,9 @@ export class SettingsComponent implements OnInit {
 
   showConvocationModal() {
     this.shareService.showConvocationModal();
+  }
+
+  openLastSession() {
+    this.apiService.sessionIsOpen(this.sessionItem['id']).subscribe(() => {this.loadSettings(); });
   }
 }

@@ -6,7 +6,7 @@ import {EventEmitter} from '@angular/core';
 })
 export class ShareService {
   showTimeModalEmitter = new EventEmitter<object>(true);
-  showLiderModalEmitter = new EventEmitter<boolean>(true);
+  showLiderModalEmitter = new EventEmitter<object>(true);
   showSessionModalEmitter = new EventEmitter<boolean>(true);
   showConvocationModalEmitter = new EventEmitter<boolean>(true);
   updateEmitter = new EventEmitter(true);
@@ -18,8 +18,8 @@ export class ShareService {
     this.showTimeModalEmitter.emit(timeObj);
   }
 
-  public showLiderModal() {
-    this.showLiderModalEmitter.emit(true);
+  public showLiderModal(liderObj) {
+    this.showLiderModalEmitter.emit(liderObj);
   }
 
   public showConvocationModal() {

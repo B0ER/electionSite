@@ -72,4 +72,8 @@ export class ApiService {
   updateTime(selectedTime: number) {
     return this.httpClient.get(`${this.API_URL}/update.php?time=${selectedTime}`);
   }
+
+  updateLider(userId: number) {
+    return this.httpClient.get(`${this.API_URL}/update.php?lider=${userId}`);
+  }
 }

@@ -3,7 +3,8 @@
     <div class="modal">
       <h3>Виберіть голову</h3>
       <select [(ngModel)]="selectedValue" class="input_main">
-        <option *ngFor="let c of headArr" [ngValue]="c">{{c}}</option>
+        <option value="null" hidden>Оберіть головного</option>
+        <option *ngFor="let c of userList" [ngValue]="c.id">{{c.imya}} {{c.fam}} {{c.otch}}</option>
       </select>
       <div class="but_modal">
         <button class="but_cancel" (click)="closeHeadModal()">Відмінити</button>

@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ShareService} from '../../services/share.service';
+import {User} from '../../models/user';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'app-director',
@@ -7,19 +9,28 @@ import {ShareService} from '../../services/share.service';
   styleUrls: ['./lider.component.scss']
 })
 export class LiderComponent implements OnInit {
-  selectedValue: string;
+  selectedValue: number;
   visible: boolean;
-  headArr: any;
 
-  constructor(private shareService: ShareService) {
-    this.headArr = ['head1', 'head2', 'head3', 'head4', 'head5', 'head6', 'head7', 'head8'];
+  liderObj: object;
+  userList: Array<User>;
+
+
+  constructor(private apiService: ApiService, private shareService: ShareService) {
+    apiService.getUsers().subscribe((users: Array<User>) => {
+      this.userList = users;
+    });
   }
 
   ngOnInit() {
     this.visible = false;
-    console.log('ngOnInit directorModal');
-    this.shareService.showLiderModalEmitter.subscribe(isVisible => {
-      this.visible = isVisible;
+    this.selectedValue = null;
+
+    this.shareService.showLiderModalEmitter.subscribe(liderObj => {
+      this.visible = true;
+      if (liderObj !== false) {
+        this.selectedValue = liderObj['id_user'];
+      }
     });
   }
 
@@ -27,8 +38,9 @@ export class LiderComponent implements OnInit {
     this.visible = false;
   }
 
-  pickHead(head) {
-    console.log('head', head);
+  pickHead(userId) {
+    this.shareService.updateAllSettings();
+    this.apiService.updateLider(userId).subscribe(() => {});
     this.closeHeadModal();
   }
 }

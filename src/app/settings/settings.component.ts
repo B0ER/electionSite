@@ -49,7 +49,7 @@ export class SettingsComponent implements OnInit {
   }
 
   showLiderModal() {
-    this.shareService.showLiderModal();
+    this.shareService.showLiderModal(this.mainUserItem);
   }
 
   showSessionModal() {

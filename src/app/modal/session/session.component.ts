@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ShareService} from '../../services/share.service';
+import {ApiService} from '../../services/api.service';
 
 @Component({
   selector: 'app-session',
@@ -7,12 +8,10 @@ import {ShareService} from '../../services/share.service';
   styleUrls: ['./session.component.scss']
 })
 export class SessionComponent implements OnInit {
-  selectedValue: string;
+  inputValue: string;
   visible: boolean;
-  headArr: any;
 
-  constructor(private shareService: ShareService) {
-    this.headArr = ['head1', 'head2', 'head3', 'head4', 'head5', 'head6', 'head7', 'head8'];
+  constructor(private shareService: ShareService, private apiService: ApiService) {
   }
 
   ngOnInit() {
@@ -23,13 +22,15 @@ export class SessionComponent implements OnInit {
     });
   }
 
-  closeHeadModal() {
+  closeModal() {
+    this.inputValue = '';
     this.visible = false;
   }
 
-  pickHead(head) {
-    console.log('head', head);
-    this.closeHeadModal();
+  saveLider() {
+    this.shareService.updateAllSettings();
+    this.apiService.createSession(this.inputValue).subscribe();
+    this.closeModal();
   }
 
 }

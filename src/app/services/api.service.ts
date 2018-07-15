@@ -76,4 +76,12 @@ export class ApiService {
   updateLider(userId: number) {
     return this.httpClient.get(`${this.API_URL}/update.php?lider=${userId}`);
   }
+
+  createSession(name) {
+    return this.httpClient.get(`${this.API_URL}/create.php?session=${name}`);
+  }
+
+  createConvocation(name) {
+    return this.httpClient.get(`${this.API_URL}/create.php?convocation=${name}`);
+  }
 }

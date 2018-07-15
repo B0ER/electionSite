@@ -23,7 +23,7 @@ export class ShareService {
   }
 
   public showConvocationModal() {
-    this.showSessionModalEmitter.emit(true);
+    this.showConvocationModalEmitter.emit(true);
   }
 
   public showSessionModal() {

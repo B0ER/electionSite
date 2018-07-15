@@ -52,27 +52,12 @@
   padding: 100px;
 }
 
-button {
-  width: 5%;
-  border: solid 1px black;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 35px;
-}
 
 .but_modal {
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
-  width: 75%;
-}
-
-button:hover {
-  cursor: pointer;
-  color: white;
-  border: solid 1px white;
+  margin-top: 10px;
+  width: 80%;
 }
 
 .img_btn {

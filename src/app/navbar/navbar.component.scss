@@ -3,7 +3,7 @@ header {
   width: 100%;
   display: flex;
   flex-direction: row;
-  min-width: 645px;
+  min-width: 675px;
   align-items: center;
   min-height: 70px;
   height: 100%;
@@ -36,7 +36,7 @@ nav {
   display: grid;
   grid-column-gap: 20px;
   grid-row-gap: 15px;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 200px));
+  grid-template-columns: repeat(auto-fit, minmax(90px, 200px));
   grid-template-rows: repeat(auto-fit, 1fr);
 
   -ms-grid-columns: minmax(150px, 1fr) minmax(150px, 1fr);

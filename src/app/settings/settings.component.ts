@@ -15,13 +15,15 @@ export class SettingsComponent implements OnInit {
   mainUserItem: any;
   timeItem: any;
 
+  sessionIsOpen: number;
+
   constructor(private apiService: ApiService, private shareService: ShareService) {
     this.convocationItem = {};
     this.sessionItem = {};
     this.timeItem = {};
     this.mainUserItem = {};
 
-    this.sessionItem.isOpen = -1;
+    this.sessionIsOpen = -1;
     this.mainUserItem = false;
 
     this.loadSettings();
@@ -39,6 +41,11 @@ export class SettingsComponent implements OnInit {
       this.convocationItem = response['convacation'];
 
       this.sessionItem = response['session'];
+      if (this.sessionItem === false) {
+        this.sessionIsOpen = -1;
+      } else {
+        this.sessionIsOpen = response['session']['isOpen'];
+      }
 
       this.mainUserItem = response['lider'];
 
@@ -63,6 +70,8 @@ export class SettingsComponent implements OnInit {
   }
 
   openLastSession() {
-    this.apiService.sessionIsOpen(this.sessionItem['id']).subscribe(() => {this.loadSettings(); });
+    this.apiService.sessionIsOpen(this.sessionItem['id']).subscribe(() => {
+      this.loadSettings();
+    });
   }
 }

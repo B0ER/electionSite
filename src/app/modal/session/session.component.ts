@@ -27,9 +27,8 @@ export class SessionComponent implements OnInit {
     this.visible = false;
   }
 
-  saveLider() {
-    this.shareService.updateAllSettings();
-    this.apiService.createSession(this.inputValue).subscribe();
+  saveSession() {
+    this.apiService.createSession(this.inputValue).subscribe(() => {this.shareService.updateAllSettings(); } );
     this.closeModal();
   }
 

@@ -1,7 +1,7 @@
 <div [hidden]="!visible" class="show-time">
   <div class="modal_center">
     <div class="modal">
-      <h3>Час для голосування (5-3600 сек)</h3>
+      <h3>Час голосування</h3>
       <input class="modal-input" min="5" max="3600" type="number" [(ngModel)]="selectedTime" (change)="changeInput()">
       <div class="but_modal">
         <button class="but_cancel" (click)="closeTimeModal()">Відмінити</button>

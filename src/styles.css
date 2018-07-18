@@ -1,6 +1,6 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
-body{
+body {
   background: rgba(0, 0, 0, 0.18);
 }
 
@@ -22,7 +22,6 @@ body{
   width: 100px;
 }
 
-
 .img_btn {
   width: 20px;
 }
@@ -35,6 +34,8 @@ button {
   justify-content: space-around;
   align-items: center;
   height: 35px;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
 }
 
 button:hover {
@@ -43,6 +44,15 @@ button:hover {
 
   border: solid 1px white;
 }
+
+button:disabled {
+  color: black;
+
+  opacity: 0.6;
+  border: solid 1px black;
+  cursor: not-allowed;
+}
+
 
 .modal {
   display: flex;
@@ -70,11 +80,11 @@ button:hover {
   width: 75%;
 }
 
-.but_cancel{
+.but_cancel {
   width: 110px;
 }
 
-.but_pick{
+.but_pick {
   width: 110px;
 }
 
@@ -84,7 +94,6 @@ h3 {
 
 .input_main {
   width: 70%;
-  padding: 3px;
   border: 1px solid black;
   background: white;
   cursor: pointer;
@@ -123,7 +132,6 @@ td {
   vertical-align: top;
   border-bottom: 2px solid #dee2e6;
 }
-
 
 /* Скрываем реальный чекбокс */
 .checkbox {

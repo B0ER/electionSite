@@ -50,7 +50,7 @@
     </thead>
     <tbody>
     <tr *ngFor="let question of questionsArr">
-      <th><label><input type="checkbox" class="checkbox" [(ngModel)]="question.checked"
+      <th class="checkbox-column"><label><input type="checkbox" class="checkbox" [(ngModel)]="question.checked"
                                     aria-label="Checkbox for following text input">
         <span class="checkbox-custom"></span></label></th>
       <td>{{question.name}}</td>

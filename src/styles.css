@@ -133,6 +133,10 @@ td {
   border-bottom: 2px solid #dee2e6;
 }
 
+.checkbox-column{
+  width: 50px;
+}
+
 /* Скрываем реальный чекбокс */
 .checkbox {
   display: none;

@@ -54,12 +54,12 @@ export class PhotoComponent implements OnInit {
       this.addedPhoto.image = objResp[0].url;
       this.itemData.push(this.addedPhoto);
       this.addedPhoto = new Photo();
+      this.idSelectSpeaker = null;
     };
   }
 
   closeModal() {
     this.showModal = false;
-    this.addedPhoto = new Photo();
     this.fileName = 'Обрати файл';
   }
 
@@ -83,6 +83,7 @@ export class PhotoComponent implements OnInit {
       this.addedPhoto.FIO = speaker.FIO;
       this.addedPhoto.id_speaker = this.idSelectSpeaker;
       this.uploader.uploadAll();
+      this.closeModal();
     }
   }
 

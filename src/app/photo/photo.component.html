@@ -12,7 +12,7 @@
       <label class="file_upload">
         <span class="button">Обрати</span>
         <mark>{{fileName}}</mark>
-        <input type="file" name="photo" ng2FileSelect [uploader]="uploader"/>
+        <input type="file" name="photo" ng2FileSelect [uploader]="uploader" accept="image/png, image/jpeg"/>
       </label>
 
       <select [(ngModel)]="idSelectSpeaker" class="input_main">

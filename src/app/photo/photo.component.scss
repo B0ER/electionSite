@@ -12,6 +12,7 @@
 
 .main {
   width: 100%;
+  min-width: 675px;
   padding-right: 15px;
   padding-left: 15px;
   padding-bottom: 25px;
@@ -153,7 +154,15 @@ mark, .mark{
 .file_upload:hover .button{
   background: rgb(239, 239, 239);
 }
+
 .file_upload:active .button{
   background: rgb(179, 179, 179);
   box-shadow: 0 0 3px rgba(0,0,0,0.3) inset
+}
+
+p {
+  max-width: 310px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ApiService} from '../services/api.service';
 import {Speaker} from '../models/speaker';
 import {Photo} from '../models/photo';
@@ -17,6 +17,8 @@ export class PhotoComponent implements OnInit {
   allIsSelect: boolean;
   showModal: boolean;
   addedPhoto: Photo;
+  fileName: string;
+
   public uploader: FileUploader = new FileUploader({
     url: `${this.apiService.API_URL}/insertPhoto.php`,
     additionalParameter: {id_speaker: null},
@@ -28,6 +30,7 @@ export class PhotoComponent implements OnInit {
     this.allIsSelect = false;
     this.idSelectSpeaker = null;
     this.addedPhoto = new Photo;
+    this.fileName = 'Обрати файл';
   }
 
   ngOnInit() {
@@ -36,6 +39,7 @@ export class PhotoComponent implements OnInit {
 
     this.uploader.onAfterAddingFile = (file) => {
       file.withCredentials = false;
+      this.fileName = file._file.name;
     };
 
     this.uploader.onBuildItemForm = (fileItem: FileItem, form: any) => {
@@ -56,6 +60,7 @@ export class PhotoComponent implements OnInit {
   closeModal() {
     this.showModal = false;
     this.addedPhoto = new Photo();
+    this.fileName = 'Обрати файл';
   }
 
   deleteItem(id) {

@@ -14,10 +14,10 @@ const routes: Routes = [
     path: 'global',
     component: GlobalComponent
   },
-  {
-    path: '',
-    component: LoginComponent
-  },
+  // {
+  //   path: '',
+  //   component: LoginComponent
+  // },
   {
     path: 'ask',
     component: AskComponent
@@ -36,7 +36,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: ''
+    redirectTo: 'global'
   }
 ];
 

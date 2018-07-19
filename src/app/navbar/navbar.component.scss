@@ -5,25 +5,26 @@ header {
   flex-direction: row;
   min-width: 675px;
   align-items: center;
-  min-height: 70px;
+  min-height: 50px;
   height: 100%;
-  background: rgba(0, 0, 0, 0.18);
+  background: rgba(0, 96, 200, 0.76);
   font-size: 1.1em;
+  box-shadow: 0 0 3px 0 #000000;
 }
 
 a {
-  color: #4b4b4b;
+  color: #ffffff;
   width: fit-content;
 }
 
 a:hover {
-  color: #ffff;
+  color: #000000;
   text-decoration: none;
 }
 
 .active_link {
   border-bottom: solid 2px #ffffff;
-  color: black;
+  color: #000000;
 }
 
 nav {
@@ -47,4 +48,5 @@ nav {
   display: flex;
   justify-content: center;
   width: 120px;
+  color: white;
 }

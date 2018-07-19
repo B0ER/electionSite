@@ -1,9 +1,11 @@
 <app-navbar></app-navbar>
 
 <div class="main_container">
-  <div class="but_del_add">
-    <button type="button" class="action_button" (click)="deleteSelected()">Видалити</button>
-    <button type="button" class="action_button" (click)="addItem()">Додати</button>
+  <div class="buttom-navbar">
+    <div class="but_del_add">
+      <button type="button" class="action_button" (click)="deleteSelected()">Видалити</button>
+      <button type="button" class="action_button" (click)="addItem()">Додати</button>
+    </div>
   </div>
 
   <div *ngIf="showModal" class="modal">
@@ -41,7 +43,7 @@
     <thead>
     <tr>
       <th><label><input class="checkbox" (change)="selectAll()" type="checkbox"
-                                      aria-label="Checkbox for following text input">
+                        aria-label="Checkbox for following text input">
         <span class="checkbox-custom"></span></label></th>
       <th>Питання</th>
       <th>Повний опис</th>
@@ -51,7 +53,7 @@
     <tbody>
     <tr *ngFor="let question of questionsArr">
       <th class="checkbox-column"><label><input type="checkbox" class="checkbox" [(ngModel)]="question.checked"
-                                    aria-label="Checkbox for following text input">
+                                                aria-label="Checkbox for following text input">
         <span class="checkbox-custom"></span></label></th>
       <td>{{question.name}}</td>
       <td>{{question.description}}</td>

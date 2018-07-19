@@ -1,8 +1,10 @@
 <app-navbar></app-navbar>
 
 <div class="main_container">
-  <div class="but_del_add">
-    <button type="button" class="action_button" (click)="addItem()">Додати</button>
+  <div class="buttom-navbar">
+    <div class="but_del_add">
+      <button type="button" class="action_button" (click)="addItem()">Додати</button>
+    </div>
   </div>
 
   <div *ngIf="showModal" class="modal">

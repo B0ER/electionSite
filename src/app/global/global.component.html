@@ -4,22 +4,22 @@
   <div class="buttom-navbar">
     <div class="but_del_add">
       <button type="button" class="action_button" (click)="deleteSelected()">Видалити</button>
-      <button type="button" class="action_button" (click)="addItem()">Додати</button>
+      <button type="button" class="action_button" (click)="showModal()">Додати</button>
     </div>
   </div>
 
-  <div *ngIf="showModal" class="modal">
+  <div *ngIf="modalVisible" class="modal">
     <div class="modal_table">
       <h3>Користувач</h3>
 
-      <input class="modal-input" placeholder="Ім'я" [(ngModel)]="name" id="name" type="text" #valid_name>
+      <input class="modal-input" placeholder="Ім'я" [(ngModel)]="formUser.imya" id="name" type="text" #valid_name>
 
       <!-- <div *ngIf="errorName" col-lg-12 col-md-6 class="errorMess">
          <p class="err">Name can not contain digits!</p>
        </div>-->
 
 
-      <input class="modal-input" placeholder="Прізвище" [(ngModel)]="lastName" id="last-name" type="text"
+      <input class="modal-input" placeholder="Прізвище" [(ngModel)]="formUser.fam" id="last-name" type="text"
              #valid_lastName>
 
       <!--<div *ngIf="errorLastName" col-lg-12 col-md-6 class="errorMess">
@@ -27,20 +27,20 @@
       </div>-->
 
 
-      <input class="modal-input" placeholder="По батькові" [(ngModel)]="patr" id="patr" type="text" #vpatr>
+      <input class="modal-input" placeholder="По батькові" [(ngModel)]="formUser.otch" id="patr" type="text" #vpatr>
 
 
-      <input class="modal-input" placeholder="Партія" [(ngModel)]="consig" id="consig" type="text" #vconsig>
+      <input class="modal-input" placeholder="Партія" [(ngModel)]="formUser.consignment" id="consig" type="text"
+             #vconsig>
 
 
-      <input class="modal-input" placeholder="MAC-адрес" [(ngModel)]="address" id="address" type="text" #vaddress>
+      <input class="modal-input" placeholder="MAC-адрес" [(ngModel)]="formUser.MAC" id="address" type="text" #vaddress>
 
       <div class="but_modal_table">
         <button class="but_cancel" (click)="closeModal()">Відмінити<img class="img_btn" src="../assets/cancel.png"
                                                                         alt=""></button>
-        <button class="but_pick" (click)="saveItem(name, lastName, patr, consig, address)">Додати<img class="img_btn"
-                                                                                                      src="../assets/done.png"
-                                                                                                      alt=""></button>
+        <button class="but_pick" (click)="saveItem()">Зберегти<img class="img_btn" src="../assets/done.png"
+                                                                 alt=""></button>
       </div>
     </div>
   </div>
@@ -48,7 +48,7 @@
   <table class="table table-hover">
     <thead>
     <tr>
-      <th class="checkbox-column"><label><input class="checkbox" [(ngModel)]="selectedAll" (change)="selectAll()"
+      <th class="checkbox-column"><label><input class="checkbox" [(ngModel)]="allIsSelect" (change)="selectAll()"
                                                 type="checkbox"
                                                 aria-label="Checkbox for following text input">
         <span class="checkbox-custom"></span></label></th>
@@ -57,6 +57,7 @@
       <th>По батькові</th>
       <th>Партія</th>
       <th>MAC-адрес</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -69,6 +70,7 @@
       <td>{{item.otch}}</td>
       <td>{{item.consignment}}</td>
       <td>{{item.MAC}}</td>
+      <td (click)="changeUser(item.id)"><img src="../../assets/change.png"></td>
     </tr>
     </tbody>
   </table>

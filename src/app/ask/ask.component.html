@@ -4,29 +4,29 @@
   <div class="buttom-navbar">
     <div class="but_del_add">
       <button type="button" class="action_button" (click)="deleteSelected()">Видалити</button>
-      <button type="button" class="action_button" (click)="addItem()">Додати</button>
+      <button type="button" class="action_button" (click)="showModal()">Додати</button>
     </div>
   </div>
 
-  <div *ngIf="showModal" class="modal">
+  <div *ngIf="modalVisible" class="modal">
     <div class="modal_table">
       <h3>Питання</h3>
 
-      <input class="modal-input" placeholder="Питання" [(ngModel)]="ask" id="name" type="text" #valid_name>
+      <input class="modal-input" placeholder="Питання" [(ngModel)]="formAsk.name" type="text" #valid_name>
 
       <!-- <div *ngIf="errorName" col-lg-12 col-md-6 class="errorMess">
          <p class="err">Name can not contain digits!</p>
        </div>-->
 
 
-      <input class="modal-input" placeholder="Повний опис" [(ngModel)]="des" id="last-name" type="text" #valid_lastName>
+      <input class="modal-input" placeholder="Повний опис" [(ngModel)]="formAsk.description" type="text" #valid_lastName>
 
       <!--<div *ngIf="errorLastName" col-lg-12 col-md-6 class="errorMess">
         <p class="err">Name can not contain digits!</p>
       </div>-->
 
 
-      <select [(ngModel)]="idSelectUser" class="input_main">
+      <select [(ngModel)]="formAsk.id_user" class="input_main">
         <option value="null">Всі відповідають</option>
         <option *ngFor="let user of usersList" [ngValue]="user.id">{{user.fam}} {{user.imya}} {{user.otch}}</option>
       </select>
@@ -34,7 +34,7 @@
 
       <div class="but_modal_table">
         <button class="modal-btn but_cancel" (click)="closeModal()">Відмінити</button>
-        <button class="modal-btn but_pick" (click)="saveItem(ask, des)">Додати</button>
+        <button class="modal-btn but_pick" (click)="saveItem()">Зберегти</button>
       </div>
     </div>
   </div>
@@ -48,6 +48,7 @@
       <th>Питання</th>
       <th>Повний опис</th>
       <th>Той хто не відповідає</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -58,6 +59,7 @@
       <td>{{question.name}}</td>
       <td>{{question.description}}</td>
       <td>{{question.imya}} {{question.fam}} {{question.otch}}</td>
+      <td (click)="changeQuestion(question.id)"><img src="../../assets/change.png"></td>
     </tr>
     </tbody>
   </table>

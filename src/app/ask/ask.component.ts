@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from '../services/api.service';
 import {User} from '../models/user';
 import {Question} from '../models/question';
+import {Speaker} from '../models/speaker';
 
 @Component({
   selector: 'app-ask',
@@ -12,21 +13,16 @@ import {Question} from '../models/question';
 export class AskComponent implements OnInit {
   /*Modal*/
   usersList: Array<User>;
-  ask: string;
-  des: string;
-  addingQuestion: Question;
-  idSelectUser: number;
+  formAsk: Question;
   /*Table*/
   questionsArr: Array<Question>;
-  showModal: boolean;
+  modalVisible: boolean;
   allIsSelect: boolean;
 
 
   constructor(private apiService: ApiService) {
-    this.questionsArr = [];
-    this.showModal = false;
-    this.addingQuestion = new Question();
-    this.idSelectUser = null;
+    this.modalVisible = false;
+    this.formAsk = new Question();
     this.allIsSelect = false;
   }
 
@@ -36,15 +32,11 @@ export class AskComponent implements OnInit {
   }
 
   closeModal() {
-    this.ask = '';
-    this.des = '';
-    this.addingQuestion = new Question();
-    this.idSelectUser = null;
-    this.showModal = false;
+    this.formAsk = new Question();
+    this.modalVisible = false;
   }
 
   selectAll() {
-    this.allIsSelect = !this.allIsSelect;
     this.questionsArr.forEach((item) => {
       item.checked = this.allIsSelect;
     });
@@ -60,30 +52,72 @@ export class AskComponent implements OnInit {
     });
   }
 
-  saveItem(ask, des) {
-    let dataObj = new Question();
-    dataObj.name = ask;
-    dataObj.description = des;
-    dataObj.id_user = this.idSelectUser;
-    if (this.idSelectUser != null) {
+  saveItem() {
+    if (this.formAsk.id_user !== null) {
       const selectUser: User = this.usersList.filter((item) => {
-        return item.id === this.idSelectUser;
+        return item.id === this.formAsk.id_user;
       })[0];
-      console.log(selectUser);
-      dataObj.imya = selectUser.imya;
-      dataObj.fam = selectUser.fam;
-      dataObj.otch = selectUser.otch;
+      this.formAsk.imya = selectUser.imya;
+      this.formAsk.fam = selectUser.fam;
+      this.formAsk.otch = selectUser.otch;
     }
-    this.apiService.insertQuestion(dataObj).subscribe((response) => {
-      dataObj.id = response['id'];
+
+    let tempQuestion = new Question(this.formAsk);
+
+    this.apiService.insertQuestion(this.formAsk).subscribe((response) => {
+      let questionChanged: Question = this.questionsArr.filter((item) => {
+        return item.id === response['id'];
+      })[0];
+
+      if (questionChanged === undefined) {
+        tempQuestion.id = response['id'];
+        this.questionsArr.push(tempQuestion);
+      } else {
+        questionChanged.name = tempQuestion.name;
+        questionChanged.description = tempQuestion.description;
+        questionChanged.id_user = tempQuestion.id_user;
+        questionChanged.imya = tempQuestion.imya;
+        questionChanged.fam = tempQuestion.fam;
+        questionChanged.otch = tempQuestion.otch;
+      }
     });
-    this.questionsArr.push(dataObj);
+
     this.closeModal();
-    console.log(dataObj);
   }
 
-  addItem() {
-    this.showModal = true;
+  /*
+      let tempFormUser = new User(this.formUser);
+
+    this.apiService.insertUser(this.formUser).subscribe((response) => {
+      let userChanged: User = this.userArray.filter((item) => {
+        return item.id === response['id'];
+      })[0];
+
+      if (userChanged === undefined) {
+        tempFormUser.id = response['id'];
+        this.userArray.push(tempFormUser);
+      } else {
+        userChanged.imya = tempFormUser.imya;
+        userChanged.fam = tempFormUser.fam;
+        userChanged.otch = tempFormUser.otch;
+        userChanged.MAC = tempFormUser.MAC;
+        userChanged.consignment = tempFormUser.consignment;
+      }
+
+    });
+    this.closeModal();
+   */
+
+  showModal() {
+    this.modalVisible = true;
+  }
+
+  changeQuestion(id) {
+    let tempQuestion = this.questionsArr.filter((item) => {
+      return item.id === id;
+    })[0];
+    this.formAsk = new Question(tempQuestion);
+    this.modalVisible = true;
   }
 
   private loadQuestion() {

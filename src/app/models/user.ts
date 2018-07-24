@@ -16,8 +16,7 @@ export class User {
       this.consignment = user.consignment;
       this.MAC = user.MAC;
       this.checked = user.checked;
-    }
-    else {
+    } else {
       this.id = null;
       this.imya = '';
       this.fam = '';

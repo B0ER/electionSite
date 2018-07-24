@@ -12,17 +12,15 @@ import {Speaker} from '../models/speaker';
 
 export class SpeakersComponent implements OnInit {
 
-  name: string;
-  position: string;
-  shortDes: string;
-  selectedAll: any;
+  formSpeaker: Speaker;
+
   itemData: Array<Speaker>;
-  showModal: boolean;
+  modalVisible: boolean;
   allIsSelect: boolean;
 
   constructor(private apiService: ApiService) {
-    this.itemData = [];
-    this.showModal = false;
+    this.formSpeaker = new Speaker();
+    this.modalVisible = false;
     this.allIsSelect = false;
   }
 
@@ -31,15 +29,12 @@ export class SpeakersComponent implements OnInit {
   }
 
   closeModal() {
-    this.name = '';
-    this.position = '';
-    this.shortDes = '';
-    this.showModal = false;
+    this.formSpeaker = new Speaker();
+    this.modalVisible = false;
   }
 
 
   selectAll() {
-    this.allIsSelect = !this.allIsSelect;
     this.itemData.forEach((item) => {
       item.checked = this.allIsSelect;
     });
@@ -55,21 +50,58 @@ export class SpeakersComponent implements OnInit {
     });
   }
 
-  saveItem(FIO, post, short_descriptions) {
-    let dataObj = new Speaker();
-    dataObj.FIO = FIO;
-    dataObj.post = post;
-    dataObj.short_descriptions = short_descriptions;
-    this.apiService.insertSpeaker(dataObj).subscribe((response) => {
-      dataObj.id = response['id'];
+  saveItem() {
+    let tempSpeaker: Speaker = new Speaker(this.formSpeaker);
+    this.apiService.insertSpeaker(this.formSpeaker).subscribe((response) => {
+      let speakerChanged: Speaker = this.itemData.filter((item) => {
+        return item.id === response['id'];
+      })[0];
+
+      if (speakerChanged === undefined) {
+        tempSpeaker.id = response['id'];
+        this.itemData.push(tempSpeaker);
+      } else {
+        speakerChanged.FIO = tempSpeaker.FIO;
+        speakerChanged.post = tempSpeaker.post;
+        speakerChanged.short_descriptions = tempSpeaker.short_descriptions;
+      }
     });
-    this.itemData.push(dataObj);
     this.closeModal();
-    console.log(dataObj);
   }
 
-  addItem() {
-    this.showModal = true;
+  /*
+  let tempFormUser = new User(this.formUser);
+
+    this.apiService.insertUser(this.formUser).subscribe((response) => {
+      let userChanged: User = this.userArray.filter((item) => {
+        return item.id === response['id'];
+      })[0];
+
+      if (userChanged === undefined) {
+        tempFormUser.id = response['id'];
+        this.userArray.push(tempFormUser);
+      } else {
+        userChanged.imya = tempFormUser.imya;
+        userChanged.fam = tempFormUser.fam;
+        userChanged.otch = tempFormUser.otch;
+        userChanged.MAC = tempFormUser.MAC;
+        userChanged.consignment = tempFormUser.consignment;
+      }
+
+    });
+    this.closeModal();
+   */
+
+  showModal() {
+    this.modalVisible = true;
+  }
+
+  changeSpeaker(id){
+    let tempSpeaker = this.itemData.filter((item) => {
+      return item.id === id;
+    })[0];
+    this.formSpeaker = new Speaker(tempSpeaker);
+    this.modalVisible = true;
   }
 
   private loadSpeakers() {

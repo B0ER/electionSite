@@ -140,7 +140,7 @@ mark, .mark{
 
 .file_upload .button{
   width: 6em;
-  background: #C7C7C7;
+  background: #225dc3;
   transition: background 0.2s;
   border: 1px solid rgba(0,0,0,0.1);
   border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
@@ -152,11 +152,11 @@ mark, .mark{
   text-overflow: ellipsis
 }
 .file_upload:hover .button{
-  background: rgb(239, 239, 239);
+  background: #397ae5;
 }
 
 .file_upload:active .button{
-  background: rgb(179, 179, 179);
+  background: #174eb4;
   box-shadow: 0 0 3px rgba(0,0,0,0.3) inset
 }
 

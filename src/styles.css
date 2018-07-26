@@ -1,5 +1,9 @@
 @import "~bootstrap/dist/css/bootstrap.css";
 
+:root{
+  --animationMainTime: 1s;
+}
+
 body {
   background: white;
 }
@@ -81,6 +85,14 @@ button:disabled {
   border: 2px solid rgba(0, 96, 200, 0.76);
   box-shadow: 0 0 3px 0 #000000;
 
+  -webkit-animation: fadein 0.5s;
+  animation: fadein 0.5s;
+
+}
+
+.close_modal {
+  -webkit-animation: fadein 0.5s;
+  animation: fadein 0.5s;
 }
 
 .but_modal_table {
@@ -165,6 +177,18 @@ h3 {
 /* Стиль таблиц */
 table {
   position: relative;
+  -webkit-animation: fadeinTable var(--animationMainTime);
+  animation: fadeinTable var(--animationMainTime);
+}
+
+@-webkit-keyframes fadeinTable {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes fadeinTable {
+  from {opacity: 0;}
+  to {opacity: 1;}
 }
 
 td {
@@ -227,6 +251,8 @@ td {
 .info{
   color: white;
   padding: 5px;
+  -webkit-animation: fadeinTable var(--animationMainTime);
+  animation: fadeinTable var(--animationMainTime);
 }
 
 
@@ -275,4 +301,17 @@ td {
 @keyframes fadeout {
   from {bottom: 30px; opacity: 1;}
   to {bottom: 0; opacity: 0;}
+}
+
+.emptyState{
+  min-height: 400px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 23px;
+  font-weight: bold;
+  color: rgba(46, 51, 66, 0.57);
+  -webkit-animation: fadeinTable var(--animationMainTime);
+  animation: fadeinTable var(--animationMainTime);
 }

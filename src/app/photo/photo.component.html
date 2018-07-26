@@ -35,7 +35,7 @@
 
 
 </div>
-<div class="main">
+<div class="main" *ngIf="isSetPhoto">
   <div class="card" *ngFor="let item of itemData">
     <img class="img-card" [src]="item.image">
     <div class="middle">
@@ -47,5 +47,7 @@
     </div>
   </div>
 </div>
+
+<div class="emptyState" *ngIf="!isSetPhoto">Немає данних</div>
 
 <div id="snackbar">{{messageError}}</div>

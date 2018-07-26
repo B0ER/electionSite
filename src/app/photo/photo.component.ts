@@ -32,6 +32,7 @@ export class PhotoComponent implements OnInit {
   });
 
   messageError: string;
+  isSetPhoto: boolean = false;
 
   constructor(private apiService: ApiService) {
     this.showModal = false;
@@ -75,9 +76,7 @@ export class PhotoComponent implements OnInit {
   deleteItem(id) {
     this.itemData = this.itemData.filter((obj) => {
       if (obj.id === id) {
-        this.apiService.deletePhoto(obj).subscribe((response) => {
-          console.log(response);
-        });
+        this.apiService.deletePhoto(obj).subscribe();
         return false;
       }
       return true;
@@ -103,6 +102,7 @@ export class PhotoComponent implements OnInit {
   private loadImages() {
     this.apiService.getImages().subscribe((data: Array<Photo>) => {
       this.itemData = data;
+      this.isSetPhoto = data.length !== 0;
     });
   }
 

@@ -9,7 +9,7 @@
     <div class="info">{{currentConvocation}} - {{currentSession}}</div>
   </div>
 
-  <div *ngIf="modalVisible" class="modal">
+  <div *ngIf="modalVisible" class="modal" #modal>
     <div class="modal_table">
       <h3>Питання</h3>
 
@@ -40,7 +40,7 @@
     </div>
   </div>
 
-  <table class="table table-hover">
+  <table class="table table-hover" *ngIf="isSetQuestion">
     <thead>
     <tr>
       <th><label><input class="checkbox" (change)="selectAll()" type="checkbox"
@@ -65,5 +65,7 @@
     </tbody>
   </table>
 </div>
+
+<div class="emptyState" *ngIf="!isSetQuestion">Немає данних</div>
 
 <div id="snackbar">{{messageError}}</div>

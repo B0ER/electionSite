@@ -27,7 +27,8 @@
       </div>-->
 
 
-      <input class="modal-input" placeholder="Короткий опис" [(ngModel)]="formSpeaker.short_descriptions" id="patr" type="text"
+      <input class="modal-input" placeholder="Короткий опис" [(ngModel)]="formSpeaker.short_descriptions" id="patr"
+             type="text"
              #vpatr>
 
 
@@ -35,13 +36,14 @@
         <button class="but_cancel" (click)="closeModal()">Відмінити<img class="img_btn" src="../assets/cancel.png"
                                                                         alt=""></button>
         <button class="but_pick" (click)="saveItem()">Зберегти<img class="img_btn"
-                                                                                              src="../assets/done.png"
-                                                                                              alt=""></button>
+                                                                   src="../assets/done.png"
+                                                                   alt=""></button>
       </div>
     </div>
   </div>
 
-  <table class="table table-hover">
+
+  <table class="table table-hover" *ngIf="isSetSpeaker">
     <thead>
     <tr>
       <th class="checkbox-column"><label>
@@ -67,4 +69,7 @@
     </tbody>
   </table>
 </div>
+
+<div class="emptyState" *ngIf="!isSetSpeaker">Немає данних</div>
+
 <div id="snackbar">{{messageError}}</div>

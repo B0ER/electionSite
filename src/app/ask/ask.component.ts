@@ -22,6 +22,9 @@ export class AskComponent implements OnInit {
   currentSession: string;
   emptySession: boolean;
   messageError: string;
+  isSetQuestion: boolean = false;
+
+  @ViewChild('modal') modal: ElementRef;
 
   constructor(private apiService: ApiService) {
     this.modalVisible = false;
@@ -104,6 +107,7 @@ export class AskComponent implements OnInit {
   private loadQuestion() {
     this.apiService.getQuestions().subscribe((data: Array<Question>) => {
       this.questionsArr = data;
+      this.isSetQuestion = data.length !== 0;
     });
   }
 

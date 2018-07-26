@@ -22,6 +22,7 @@ export class SpeakersComponent implements OnInit {
   emptySession: boolean;
 
   messageError: string;
+  isSetSpeaker: boolean = false;
 
   constructor(private apiService: ApiService) {
     this.formSpeaker = new Speaker();
@@ -30,8 +31,8 @@ export class SpeakersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.loadSpeakers();
     this.loadInfo();
+    this.loadSpeakers();
   }
 
   closeModal() {
@@ -90,6 +91,7 @@ export class SpeakersComponent implements OnInit {
   private loadSpeakers() {
     this.apiService.getSpeakers().subscribe((data: Array<Speaker>) => {
       this.itemData = data;
+      this.isSetSpeaker = data.length !== 0;
     });
   }
 
@@ -98,7 +100,7 @@ export class SpeakersComponent implements OnInit {
       this.currentConvocation = response['convocationName'];
       if (response['sessionName'] !== null) {
         this.currentSession = response['sessionName'];
-        this.emptySession=false;
+        this.emptySession = false;
       } else {
         this.currentSession = 'немає';
         this.emptySession = true;
@@ -116,6 +118,6 @@ export class SpeakersComponent implements OnInit {
     x.className = 'show';
 
     // After 3 seconds, remove the show class from DIV
-    setTimeout(function(){ x.className = x.className.replace('show', ''); }, 3000);
+    setTimeout(function() { x.className = x.className.replace('show', ''); }, 3000);
   }
 }

@@ -21,6 +21,8 @@ export class SpeakersComponent implements OnInit {
   currentSession: string;
   emptySession: boolean;
 
+  messageError: string;
+
   constructor(private apiService: ApiService) {
     this.formSpeaker = new Speaker();
     this.modalVisible = false;
@@ -102,5 +104,18 @@ export class SpeakersComponent implements OnInit {
         this.emptySession = true;
       }
     });
+  }
+
+  showToast(message) {
+    this.messageError = message;
+
+    // Get the snackbar DIV
+    let x = document.getElementById('snackbar');
+
+    // Add the "show" class to DIV
+    x.className = 'show';
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace('show', ''); }, 3000);
   }
 }

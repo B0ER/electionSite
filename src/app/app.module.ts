@@ -17,6 +17,7 @@ import {FileUploadModule} from 'ng2-file-upload';
 import {SettingsComponent} from './settings/settings.component';
 import {ConvocationComponent} from './modal/convocation/convocation.component';
 import { SessionComponent } from './modal/session/session.component';
+import {NgxMaskModule} from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { SessionComponent } from './modal/session/session.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    FileUploadModule
+    FileUploadModule,
+    NgxMaskModule.forRoot()
   ],
   exports: [FileUploadModule],
   providers: [],

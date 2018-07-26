@@ -17,6 +17,11 @@ export class GlobalComponent implements OnInit {
 
   modalVisible: boolean;
 
+  // public customMask = {'0' : {pattern: new RegExp('^[0-9a-f]{2}([:])(?:[0-9a-f]{2}\\1){4}[0-9a-f]{2}$')}};
+  public customMask = {'0': {pattern: new RegExp('[0-9a-f]')}};
+
+  messageError: string = 'SOME MESSAGE';
+
   constructor(private apiService: ApiService) {
     this.formUser = new User();
     this.modalVisible = false;
@@ -100,4 +105,20 @@ export class GlobalComponent implements OnInit {
       }
     });
   }
+
+  showToast(message) {
+    this.messageError = message;
+
+    // Get the snackbar DIV
+    let x = document.getElementById('snackbar');
+
+    // Add the "show" class to DIV
+    x.className = 'show';
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function () {
+      x.className = x.className.replace('show', '');
+    }, 3000);
+  }
+
 }

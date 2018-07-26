@@ -13,29 +13,16 @@
     <div class="modal_table">
       <h3>Користувач</h3>
 
-      <input class="modal-input" placeholder="Ім'я" [(ngModel)]="formUser.imya" id="name" type="text" #valid_name>
+      <input class="modal-input" placeholder="Ім'я" [(ngModel)]="formUser.imya" id="name" type="text">
 
-      <!-- <div *ngIf="errorName" col-lg-12 col-md-6 class="errorMess">
-         <p class="err">Name can not contain digits!</p>
-       </div>-->
+      <input class="modal-input" placeholder="Прізвище" [(ngModel)]="formUser.fam" type="text">
 
+      <input class="modal-input" placeholder="По батькові" [(ngModel)]="formUser.otch" type="text">
 
-      <input class="modal-input" placeholder="Прізвище" [(ngModel)]="formUser.fam" id="last-name" type="text"
-             #valid_lastName>
-
-      <!--<div *ngIf="errorLastName" col-lg-12 col-md-6 class="errorMess">
-        <p class="err">Name can not contain digits!</p>
-      </div>-->
-
-
-      <input class="modal-input" placeholder="По батькові" [(ngModel)]="formUser.otch" id="patr" type="text" #vpatr>
-
-
-      <input class="modal-input" placeholder="Партія" [(ngModel)]="formUser.consignment" id="consig" type="text"
+      <input class="modal-input" placeholder="Партія" [(ngModel)]="formUser.consignment" type="text"
              #vconsig>
 
-
-      <input class="modal-input" placeholder="MAC-адрес" [(ngModel)]="formUser.MAC" id="address" type="text" #vaddress>
+      <input class="modal-input" placeholder="MAC-адрес" [patterns]="customMask" mask="00:00:00:00:00:00" [(ngModel)]="formUser.MAC"type="text">
 
       <div class="but_modal_table">
         <button class="but_cancel" (click)="closeModal()">Відмінити<img class="img_btn" src="../../assets/cancel.png"
@@ -76,3 +63,5 @@
     </tbody>
   </table>
 </div>
+
+<div id="snackbar">{{messageError}}</div>

@@ -29,6 +29,8 @@ export class PhotoComponent implements OnInit {
     itemAlias: 'photo'
   });
 
+  messageError: string;
+
   constructor(private apiService: ApiService) {
     this.showModal = false;
     this.allIsSelect = false;
@@ -119,5 +121,18 @@ export class PhotoComponent implements OnInit {
         this.currentSession = 'немає';
       }
     });
+  }
+
+  showToast(message) {
+    this.messageError = message;
+
+    // Get the snackbar DIV
+    let x = document.getElementById('snackbar');
+
+    // Add the "show" class to DIV
+    x.className = 'show';
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace('show', ''); }, 3000);
   }
 }

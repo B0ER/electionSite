@@ -19,16 +19,16 @@
 
       <input class="modal-input" placeholder="По батькові" [(ngModel)]="formUser.otch" type="text">
 
-      <input class="modal-input" placeholder="Партія" [(ngModel)]="formUser.consignment" type="text"
-             #vconsig>
+      <input class="modal-input" placeholder="Партія" [(ngModel)]="formUser.consignment" type="text">
 
-      <input class="modal-input" placeholder="MAC-адрес" [patterns]="customMask" mask="00:00:00:00:00:00" [(ngModel)]="formUser.MAC"type="text">
+      <input class="modal-input" placeholder="MAC-адрес" [patterns]="customMask"
+             [dropSpecialCharacters]="false" mask="00:00:00:00:00:00" [(ngModel)]="formUser.MAC" type="text">
 
       <div class="but_modal_table">
         <button class="but_cancel" (click)="closeModal()">Відмінити<img class="img_btn" src="../../assets/cancel.png"
                                                                         alt=""></button>
         <button class="but_pick" (click)="saveItem()">Зберегти<img class="img_btn" src="../../assets/done.png"
-                                                                 alt=""></button>
+                                                                   alt=""></button>
       </div>
     </div>
   </div>

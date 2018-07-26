@@ -18,7 +18,7 @@ export class GlobalComponent implements OnInit {
   modalVisible: boolean;
 
   // public customMask = {'0' : {pattern: new RegExp('^[0-9a-f]{2}([:])(?:[0-9a-f]{2}\\1){4}[0-9a-f]{2}$')}};
-  public customMask = {'0': {pattern: new RegExp('[0-9a-f]')}};
+  public customMask = {'0': {pattern: new RegExp('\[0-9a-f\]')}};
 
   messageError: string = 'SOME MESSAGE';
 

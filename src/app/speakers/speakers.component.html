@@ -15,22 +15,9 @@
 
       <input class="modal-input" placeholder="ПІБ" [(ngModel)]="formSpeaker.FIO" type="text" #valid_name>
 
-      <!-- <div *ngIf="errorName" col-lg-12 col-md-6 class="errorMess">
-         <p class="err">Name can not contain digits!</p>
-       </div>-->
-
-
       <input class="modal-input" placeholder="Посада" [(ngModel)]="formSpeaker.post" type="text" #valid_lastName>
 
-      <!--<div *ngIf="errorLastName" col-lg-12 col-md-6 class="errorMess">
-        <p class="err">Name can not contain digits!</p>
-      </div>-->
-
-
-      <input class="modal-input" placeholder="Короткий опис" [(ngModel)]="formSpeaker.short_descriptions" id="patr"
-             type="text"
-             #vpatr>
-
+      <textarea class="modal-input" placeholder="Короткий опис" [(ngModel)]="formSpeaker.short_descriptions"></textarea>
 
       <div class="but_modal_table">
         <button class="but_cancel" (click)="closeModal()">Відмінити<img class="img_btn" src="../assets/cancel.png"

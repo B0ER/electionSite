@@ -22,10 +22,10 @@
   display: grid;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 800px));
   grid-template-rows: repeat(auto-fit, 1fr);
 
-  -ms-grid-columns: minmax(200px, 1fr) minmax(280px, 1fr);
+  -ms-grid-columns: minmax(200px, 1fr) minmax(280px, 800px);
   -ms-grid-rows: 1fr 1fr;
 }
 
@@ -34,7 +34,7 @@
 }
 
 .but_delete {
-  width: 110px;
+  width: 130px;
 }
 
 .card {

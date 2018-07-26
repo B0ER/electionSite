@@ -12,10 +12,12 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 645px;
+  min-width: 645px;
 }
 
 .buttom-navbar{
   min-height: 45px;
+  min-width: 715px;
   width: 100%;
   background: rgba(0, 0, 0, 0.77);
   padding: 5px;

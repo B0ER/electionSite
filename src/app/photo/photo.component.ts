@@ -23,7 +23,7 @@ export class PhotoComponent implements OnInit {
   currentSession: string;
   emptySession: boolean;
   idSpeakerSelected: boolean = false;
-  fileSelected: boolean = false;
+  fileSelected: boolean = null;
 
   public uploader: FileUploader = new FileUploader({
     url: `${this.apiService.API_URL}/insertPhoto.php`,

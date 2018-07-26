@@ -57,6 +57,7 @@
   </table>
 </div>
 
-<div class="emptyState" *ngIf="!isSetSpeaker">Немає данних</div>
+<div class="emptyState" *ngIf="isSetSpeaker === false">Немає данних</div>
+<div class="emptyState" *ngIf="isSetSpeaker === null">Немає зв`язку</div>
 
 <div id="snackbar">{{messageError}}</div>

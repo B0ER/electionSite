@@ -18,10 +18,11 @@ export class GlobalComponent implements OnInit {
 
   modalVisible: boolean;
 
-  public customMask = {'0': {pattern: new RegExp('\[0-9a-f\]')}};
+  public customMask = {'0': {pattern: new RegExp('\[0-9a-fA-F\]')}};
   @ViewChild('modal') modal: ElementRef;
 
   messageError: string = 'SOME MESSAGE';
+  isSetUser: boolean = null;
 
   constructor(private apiService: ApiService, private render: Renderer2) {
     this.formUser = new User();
@@ -98,6 +99,7 @@ export class GlobalComponent implements OnInit {
   private loadUser() {
     this.apiService.getUsers().subscribe((data: Array<User>) => {
       this.userArray = data;
+      this.isSetUser = data.length !== 0;
     });
   }
 

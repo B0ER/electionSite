@@ -48,6 +48,7 @@
   </div>
 </div>
 
-<div class="emptyState" *ngIf="!isSetPhoto">Немає данних</div>
+<div class="emptyState" *ngIf="isSetPhoto === false">Немає данних</div>
+<div class="emptyState" *ngIf="isSetPhoto === null">Немає зв`язку</div>
 
 <div id="snackbar">{{messageError}}</div>

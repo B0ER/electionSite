@@ -21,7 +21,7 @@ export class SpeakersComponent implements OnInit {
   emptySession: boolean;
 
   messageError: string;
-  isSetSpeaker: boolean = false;
+  isSetSpeaker: boolean = null;
   @ViewChild('modal') modal: ElementRef;
 
   constructor(private apiService: ApiService, private render: Renderer2) {

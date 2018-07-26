@@ -56,6 +56,7 @@
   </table>
 </div>
 
-<div class="emptyState" *ngIf="!isSetQuestion">Немає данних</div>
+<div class="emptyState" *ngIf="isSetQuestion === false">Немає данних</div>
+<div class="emptyState" *ngIf="isSetQuestion === null">Немає зв`язку</div>
 
 <div id="snackbar">{{messageError}}</div>

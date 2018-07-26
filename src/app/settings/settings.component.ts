@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {ApiService} from '../services/api.service';
-import {ShareService} from '../services/share.service';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {ApiService} from '../_services/api.service';
+import {ShareService} from '../_services/share.service';
 
 @Component({
   selector: 'app-settings',
@@ -8,14 +8,14 @@ import {ShareService} from '../services/share.service';
   styleUrls: ['./settings.component.scss']
 })
 export class SettingsComponent implements OnInit {
-  private static OPEN = 1;
-
   sessionItem: any;
   convocationItem: any;
   mainUserItem: any;
   timeItem: any;
 
   sessionIsOpen: number;
+  currentSession: string;
+  currentConvocation: string;
 
   constructor(private apiService: ApiService, private shareService: ShareService) {
     this.convocationItem = {};
@@ -34,6 +34,7 @@ export class SettingsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadInfo();
   }
 
   private loadSettings() {
@@ -50,6 +51,7 @@ export class SettingsComponent implements OnInit {
       this.mainUserItem = response['lider'];
 
       this.timeItem = response['time'];
+      this.loadInfo();
     });
   }
 
@@ -72,6 +74,17 @@ export class SettingsComponent implements OnInit {
   openLastSession() {
     this.apiService.sessionIsOpen(this.sessionItem['id']).subscribe(() => {
       this.loadSettings();
+    });
+  }
+
+  private loadInfo() {
+    this.apiService.getSessionConvacation().subscribe((response) => {
+      this.currentConvocation = response['convocationName'];
+      if (response['sessionName'] !== null) {
+        this.currentSession = response['sessionName'];
+      } else {
+        this.currentSession = 'немає';
+      }
     });
   }
 }

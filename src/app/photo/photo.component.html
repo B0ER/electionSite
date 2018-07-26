@@ -3,8 +3,9 @@
 <div class="main_container">
   <div class="buttom-navbar">
     <div class="but_del_add">
-      <button type="button" class="action_button" (click)="addItem()">Додати</button>
+      <button type="button" class="action_button" (click)="addItem()" [disabled]="emptySession">Додати</button>
     </div>
+    <div class="info">{{currentConvocation}} - {{currentSession}}</div>
   </div>
 
   <div *ngIf="showModal" class="modal">

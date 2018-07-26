@@ -1,7 +1,6 @@
-///<reference path="../models/user.ts"/>
-import {Component, OnInit} from '@angular/core';
-import {ApiService} from '../services/api.service';
-import {User} from '../models/user';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {ApiService} from '../_services/api.service';
+import {User} from '../_models/user';
 
 @Component({
   selector: 'app-main',
@@ -12,18 +11,20 @@ import {User} from '../models/user';
 export class GlobalComponent implements OnInit {
   userArray: Array<User> = [];
   allIsSelect: boolean;
-
-
   formUser: User;
+  currentConvocation: string;
+  currentSession: string;
 
   modalVisible: boolean;
 
   constructor(private apiService: ApiService) {
+    this.formUser = new User();
     this.modalVisible = false;
     this.allIsSelect = false;
   }
 
   ngOnInit() {
+    this.loadInfo();
     this.loadUser();
   }
 
@@ -86,6 +87,17 @@ export class GlobalComponent implements OnInit {
   private loadUser() {
     this.apiService.getUsers().subscribe((data: Array<User>) => {
       this.userArray = data;
+    });
+  }
+
+  private loadInfo() {
+    this.apiService.getSessionConvacation().subscribe((response) => {
+      this.currentConvocation = response['convocationName'];
+      if (response['sessionName'] !== null) {
+        this.currentSession = response['sessionName'];
+      } else {
+        this.currentSession = 'немає';
+      }
     });
   }
 }

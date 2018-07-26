@@ -3,6 +3,7 @@ export class Question {
   public name: string;
   public description: string;
   public checked: boolean;
+  public id_session: number;
 
   public id_user: number;
   public imya: string;
@@ -19,6 +20,7 @@ export class Question {
       this.imya = question.imya;
       this.fam = question.fam;
       this.otch = question.otch;
+      this.id_session = question.id_session;
     } else {
       this.id = null;
       this.name = '';
@@ -28,6 +30,7 @@ export class Question {
       this.imya = '';
       this.fam = '';
       this.otch = '';
+      this.id_session = null;
     }
   }
 }

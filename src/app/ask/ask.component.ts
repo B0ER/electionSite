@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ApiService} from '../services/api.service';
-import {User} from '../models/user';
-import {Question} from '../models/question';
-import {Speaker} from '../models/speaker';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {ApiService} from '../_services/api.service';
+import {User} from '../_models/user';
+import {Question} from '../_models/question';
+import {Speaker} from '../_models/speaker';
 
 @Component({
   selector: 'app-ask',
@@ -18,7 +18,9 @@ export class AskComponent implements OnInit {
   questionsArr: Array<Question>;
   modalVisible: boolean;
   allIsSelect: boolean;
-
+  currentConvocation: string;
+  currentSession: string;
+  emptySession: boolean;
 
   constructor(private apiService: ApiService) {
     this.modalVisible = false;
@@ -27,6 +29,7 @@ export class AskComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.loadInfo();
     this.loadQuestion();
     this.loadUsers();
   }
@@ -85,29 +88,6 @@ export class AskComponent implements OnInit {
     this.closeModal();
   }
 
-  /*
-      let tempFormUser = new User(this.formUser);
-
-    this.apiService.insertUser(this.formUser).subscribe((response) => {
-      let userChanged: User = this.userArray.filter((item) => {
-        return item.id === response['id'];
-      })[0];
-
-      if (userChanged === undefined) {
-        tempFormUser.id = response['id'];
-        this.userArray.push(tempFormUser);
-      } else {
-        userChanged.imya = tempFormUser.imya;
-        userChanged.fam = tempFormUser.fam;
-        userChanged.otch = tempFormUser.otch;
-        userChanged.MAC = tempFormUser.MAC;
-        userChanged.consignment = tempFormUser.consignment;
-      }
-
-    });
-    this.closeModal();
-   */
-
   showModal() {
     this.modalVisible = true;
   }
@@ -129,6 +109,19 @@ export class AskComponent implements OnInit {
   private loadUsers() {
     this.apiService.getUsers().subscribe((data: Array<User>) => {
       this.usersList = data;
+    });
+  }
+
+  private loadInfo() {
+    this.apiService.getSessionConvacation().subscribe((response) => {
+      this.currentConvocation = response['convocationName'];
+      if (response['sessionName'] !== null) {
+        this.currentSession = response['sessionName'];
+        this.emptySession = false;
+      } else {
+        this.currentSession = 'немає';
+        this.emptySession = true;
+      }
     });
   }
 }

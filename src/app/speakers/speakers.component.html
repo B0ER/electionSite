@@ -4,8 +4,9 @@
   <div class="buttom-navbar">
     <div class="but_del_add">
       <button type="button" class="action_button" (click)="deleteSelected()">Видалити</button>
-      <button type="button" class="action_button" (click)="showModal()">Додати</button>
+      <button type="button" class="action_button" (click)="showModal()" [disabled]="emptySession">Додати</button>
     </div>
+    <div class="info">{{currentConvocation}} - {{currentSession}}</div>
   </div>
 
   <div *ngIf="modalVisible" class="modal">
@@ -44,7 +45,7 @@
     <thead>
     <tr>
       <th class="checkbox-column"><label>
-        <input class="checkbox" [(ngModel)]="selectedAll" (change)="selectAll()" type="checkbox"
+        <input class="checkbox" [(ngModel)]="allIsSelect" (change)="selectAll()" type="checkbox"
                aria-label="Обрати всiх">
         <span class="checkbox-custom"></span></label>
       <th>Прізвище Ім'я По батькові</th>

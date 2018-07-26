@@ -6,6 +6,7 @@
       <button type="button" class="action_button" (click)="deleteSelected()">Видалити</button>
       <button type="button" class="action_button" (click)="showModal()">Додати</button>
     </div>
+    <div class="info">{{currentConvocation}} - {{currentSession}}</div>
   </div>
 
   <div *ngIf="modalVisible" class="modal">
@@ -37,9 +38,9 @@
       <input class="modal-input" placeholder="MAC-адрес" [(ngModel)]="formUser.MAC" id="address" type="text" #vaddress>
 
       <div class="but_modal_table">
-        <button class="but_cancel" (click)="closeModal()">Відмінити<img class="img_btn" src="../assets/cancel.png"
+        <button class="but_cancel" (click)="closeModal()">Відмінити<img class="img_btn" src="../../assets/cancel.png"
                                                                         alt=""></button>
-        <button class="but_pick" (click)="saveItem()">Зберегти<img class="img_btn" src="../assets/done.png"
+        <button class="but_pick" (click)="saveItem()">Зберегти<img class="img_btn" src="../../assets/done.png"
                                                                  alt=""></button>
       </div>
     </div>

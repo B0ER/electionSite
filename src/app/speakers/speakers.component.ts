@@ -1,8 +1,8 @@
-import {Component, OnInit} from '@angular/core';
-import {ApiService} from '../services/api.service';
-import {User} from '../models/user';
-import {Question} from '../models/question';
-import {Speaker} from '../models/speaker';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {ApiService} from '../_services/api.service';
+import {User} from '../_models/user';
+import {Question} from '../_models/question';
+import {Speaker} from '../_models/speaker';
 
 @Component({
   selector: 'app-speakers',
@@ -17,6 +17,9 @@ export class SpeakersComponent implements OnInit {
   itemData: Array<Speaker>;
   modalVisible: boolean;
   allIsSelect: boolean;
+  currentConvocation: string;
+  currentSession: string;
+  emptySession: boolean;
 
   constructor(private apiService: ApiService) {
     this.formSpeaker = new Speaker();
@@ -26,6 +29,7 @@ export class SpeakersComponent implements OnInit {
 
   ngOnInit() {
     this.loadSpeakers();
+    this.loadInfo();
   }
 
   closeModal() {
@@ -69,29 +73,6 @@ export class SpeakersComponent implements OnInit {
     this.closeModal();
   }
 
-  /*
-  let tempFormUser = new User(this.formUser);
-
-    this.apiService.insertUser(this.formUser).subscribe((response) => {
-      let userChanged: User = this.userArray.filter((item) => {
-        return item.id === response['id'];
-      })[0];
-
-      if (userChanged === undefined) {
-        tempFormUser.id = response['id'];
-        this.userArray.push(tempFormUser);
-      } else {
-        userChanged.imya = tempFormUser.imya;
-        userChanged.fam = tempFormUser.fam;
-        userChanged.otch = tempFormUser.otch;
-        userChanged.MAC = tempFormUser.MAC;
-        userChanged.consignment = tempFormUser.consignment;
-      }
-
-    });
-    this.closeModal();
-   */
-
   showModal() {
     this.modalVisible = true;
   }
@@ -107,6 +88,19 @@ export class SpeakersComponent implements OnInit {
   private loadSpeakers() {
     this.apiService.getSpeakers().subscribe((data: Array<Speaker>) => {
       this.itemData = data;
+    });
+  }
+
+  private loadInfo() {
+    this.apiService.getSessionConvacation().subscribe((response) => {
+      this.currentConvocation = response['convocationName'];
+      if (response['sessionName'] !== null) {
+        this.currentSession = response['sessionName'];
+        this.emptySession=false;
+      } else {
+        this.currentSession = 'немає';
+        this.emptySession = true;
+      }
     });
   }
 }

@@ -1,10 +1,10 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
-import {User} from '../models/user';
-import {Speaker} from '../models/speaker';
-import {Question} from '../models/question';
-import {Photo} from '../models/photo';
+import {User} from '../_models/user';
+import {Speaker} from '../_models/speaker';
+import {Question} from '../_models/question';
+import {Photo} from '../_models/photo';
 import {ShareService} from './share.service';
 
 @Injectable({
@@ -15,6 +15,10 @@ export class ApiService {
   API_URL = 'http://31.202.52.184:2026';
 
   constructor(private httpClient: HttpClient, private shareService: ShareService) {
+  }
+
+  getSessionConvacation() {
+    return this.httpClient.get(`${this.API_URL}/select.php?table=infoNavbar`);
   }
 
   getQuestions() {

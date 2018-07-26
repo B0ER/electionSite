@@ -4,22 +4,23 @@
   <div class="buttom-navbar">
     <div class="but_del_add">
       <button type="button" class="action_button" (click)="deleteSelected()">Видалити</button>
-      <button type="button" class="action_button" (click)="showModal()">Додати</button>
+      <button type="button" class="action_button" (click)="showModal()" [disabled]="emptySession">Додати</button>
     </div>
+    <div class="info">{{currentConvocation}} - {{currentSession}}</div>
   </div>
 
   <div *ngIf="modalVisible" class="modal">
     <div class="modal_table">
       <h3>Питання</h3>
 
-      <input class="modal-input" placeholder="Питання" [(ngModel)]="formAsk.name" type="text" #valid_name>
+      <input class="modal-input" placeholder="Питання" [(ngModel)]="formAsk.name" type="text">
 
       <!-- <div *ngIf="errorName" col-lg-12 col-md-6 class="errorMess">
          <p class="err">Name can not contain digits!</p>
        </div>-->
 
 
-      <input class="modal-input" placeholder="Повний опис" [(ngModel)]="formAsk.description" type="text" #valid_lastName>
+      <textarea class="modal-input" placeholder="Повний опис" [(ngModel)]="formAsk.description" type="text"></textarea>
 
       <!--<div *ngIf="errorLastName" col-lg-12 col-md-6 class="errorMess">
         <p class="err">Name can not contain digits!</p>

@@ -1,64 +1,15 @@
-.modal {
-  display: flex;
-  flex-direction: column;
-  width: 310px;
-  height: 200px;
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background: rgb(209, 209, 209);
-  top: 20%;
-  border-radius: 3px;
-  border: 1px solid #D1D1D1;
-  box-shadow: 0 0 3px 0 #000000;
-}
-
-.modal_center{
-  display: block;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.input_main {
-  width: 70%;
-  padding: 3px;
-  border: 1px solid black;
-  background: white;
-  cursor: pointer;
-  border-radius: 3px;
-}
-
-.but_cancel{
-  width: 110px;
-}
-
-.but_pick{
-  width: 110px;
-}
-
-
-.show-time {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 100px;
+.modal{
+  height: 150px;
+  width: 340px;
 }
 
 .but_modal {
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
-  width: 75%;
+  margin-top: 10px;
+  width: 80%;
 }
 
-.img_btn {
-  width: 20px;
+.modal-input{
+  width: 85%;
 }

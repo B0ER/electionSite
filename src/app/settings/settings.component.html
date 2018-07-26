@@ -1,5 +1,7 @@
 <app-navbar></app-navbar>
-<div class="buttom-navbar"></div>
+<div class="buttom-navbar" style="justify-content: right">
+  <div class="info">{{currentConvocation}} - {{currentSession}}</div>
+</div>
 <table class="table table-hover">
   <thead>
   <tr>
@@ -38,7 +40,7 @@
     </td>
   </tr>
   <tr>
-    <td>Головний скликання</td>
+    <td>Голова скликання</td>
     <td *ngIf="mainUserItem != false; else unset2">{{mainUserItem.imya}} {{mainUserItem.fam}} {{mainUserItem.otch}}</td>
     <ng-template #unset2>
       <td>Оберіть головного скликання</td>

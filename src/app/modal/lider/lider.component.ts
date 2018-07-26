@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {ShareService} from '../../services/share.service';
-import {User} from '../../models/user';
-import {ApiService} from '../../services/api.service';
+import {ShareService} from '../../_services/share.service';
+import {User} from '../../_models/user';
+import {ApiService} from '../../_services/api.service';
 
 @Component({
   selector: 'app-director',

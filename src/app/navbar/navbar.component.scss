@@ -18,13 +18,18 @@ a {
 }
 
 a:hover {
-  color: #000000;
+  color: #0846b3;
   text-decoration: none;
 }
 
 .active_link {
   border-bottom: solid 2px #ffffff;
-  color: #000000;
+  color: white;
+}
+.active_link:hover {
+  border-bottom: solid 2px #ffffff;
+  cursor: default;
+  color: white;
 }
 
 nav {

@@ -1,6 +1,5 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {ApiService} from '../_services/api.service';
-import {User} from '../_models/user';
 import {Question} from '../_models/question';
 import {Speaker} from '../_models/speaker';
 
@@ -23,8 +22,9 @@ export class SpeakersComponent implements OnInit {
 
   messageError: string;
   isSetSpeaker: boolean = false;
+  @ViewChild('modal') modal: ElementRef;
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private render: Renderer2) {
     this.formSpeaker = new Speaker();
     this.modalVisible = false;
     this.allIsSelect = false;
@@ -36,8 +36,12 @@ export class SpeakersComponent implements OnInit {
   }
 
   closeModal() {
-    this.formSpeaker = new Speaker();
-    this.modalVisible = false;
+    this.render.addClass(this.modal.nativeElement, 'close_modal');
+
+    setTimeout(function (page) {
+      page.formSpeaker = new Question();
+      page.modalVisible = false;
+    }, 500, this);
   }
 
 

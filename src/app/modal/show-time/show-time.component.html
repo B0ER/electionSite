@@ -1,6 +1,6 @@
 <div [hidden]="!visible" class="show-time">
   <div class="modal_center">
-    <div class="modal">
+    <div class="modal" #modal>
       <h3>Час голосування</h3>
       <input class="modal-input" min="5" max="3600" type="number" [(ngModel)]="selectedTime" (change)="changeInput()">
       <div class="but_modal">

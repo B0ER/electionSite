@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {ShareService} from '../../_services/share.service';
 import {User} from '../../_models/user';
 import {ApiService} from '../../_services/api.service';
+import {Question} from '../../_models/question';
 
 @Component({
   selector: 'app-director',
@@ -11,12 +12,11 @@ import {ApiService} from '../../_services/api.service';
 export class LiderComponent implements OnInit {
   selectedValue: number;
   visible: boolean;
-
-  liderObj: object;
   userList: Array<User>;
+  @ViewChild('modal') modal: ElementRef;
 
 
-  constructor(private apiService: ApiService, private shareService: ShareService) {
+  constructor(private apiService: ApiService, private shareService: ShareService, private render: Renderer2) {
     apiService.getUsers().subscribe((users: Array<User>) => {
       this.userList = users;
     });
@@ -35,7 +35,12 @@ export class LiderComponent implements OnInit {
   }
 
   closeHeadModal() {
-    this.visible = false;
+    this.render.addClass(this.modal.nativeElement, 'close_modal');
+
+    setTimeout(function (page) {
+      page.visible = false;
+      page.render.removeClass(page.modal.nativeElement, 'close_modal');
+    }, 500, this);
   }
 
   pickHead(userId) {

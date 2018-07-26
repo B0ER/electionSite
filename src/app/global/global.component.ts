@@ -1,6 +1,7 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {ApiService} from '../_services/api.service';
 import {User} from '../_models/user';
+import {Question} from '../_models/question';
 
 @Component({
   selector: 'app-main',
@@ -17,12 +18,12 @@ export class GlobalComponent implements OnInit {
 
   modalVisible: boolean;
 
-  // public customMask = {'0' : {pattern: new RegExp('^[0-9a-f]{2}([:])(?:[0-9a-f]{2}\\1){4}[0-9a-f]{2}$')}};
   public customMask = {'0': {pattern: new RegExp('\[0-9a-f\]')}};
+  @ViewChild('modal') modal: ElementRef;
 
   messageError: string = 'SOME MESSAGE';
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private render: Renderer2) {
     this.formUser = new User();
     this.modalVisible = false;
     this.allIsSelect = false;
@@ -34,8 +35,13 @@ export class GlobalComponent implements OnInit {
   }
 
   closeModal() {
-    this.formUser = new User();
-    this.modalVisible = false;
+
+    this.render.addClass(this.modal.nativeElement, 'close_modal');
+
+    setTimeout(function (page) {
+      page.formUser = new User();
+      page.modalVisible = false;
+    }, 500, this);
   }
 
   selectAll() {

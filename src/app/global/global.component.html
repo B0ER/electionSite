@@ -9,11 +9,11 @@
     <div class="info">{{currentConvocation}} - {{currentSession}}</div>
   </div>
 
-  <div *ngIf="modalVisible" class="modal">
+  <div *ngIf="modalVisible" class="modal" #modal>
     <div class="modal_table">
       <h3>Користувач</h3>
 
-      <input class="modal-input" placeholder="Ім'я" [(ngModel)]="formUser.imya" id="name" type="text">
+      <input class="modal-input" placeholder="Ім'я" [(ngModel)]="formUser.imya" type="text">
 
       <input class="modal-input" placeholder="Прізвище" [(ngModel)]="formUser.fam" type="text">
 

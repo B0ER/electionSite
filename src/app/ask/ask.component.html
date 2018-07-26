@@ -15,17 +15,7 @@
 
       <input class="modal-input" placeholder="Питання" [(ngModel)]="formAsk.name" type="text">
 
-      <!-- <div *ngIf="errorName" col-lg-12 col-md-6 class="errorMess">
-         <p class="err">Name can not contain digits!</p>
-       </div>-->
-
-
       <textarea class="modal-input" placeholder="Повний опис" [(ngModel)]="formAsk.description" type="text"></textarea>
-
-      <!--<div *ngIf="errorLastName" col-lg-12 col-md-6 class="errorMess">
-        <p class="err">Name can not contain digits!</p>
-      </div>-->
-
 
       <select [(ngModel)]="formAsk.id_user" class="input_main">
         <option value="null">Всі відповідають</option>

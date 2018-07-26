@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {ShareService} from '../../_services/share.service';
 import {ApiService} from '../../_services/api.service';
+import {Question} from '../../_models/question';
 
 @Component({
   selector: 'app-show-time',
@@ -11,8 +12,9 @@ export class ShowTimeComponent implements OnInit {
   visible: boolean;
   selectedTime: number;
   timeObj: object;
+  @ViewChild('modal') modal: ElementRef;
 
-  constructor(private apiService: ApiService, private shareService: ShareService) {
+  constructor(private apiService: ApiService, private shareService: ShareService, private render: Renderer2) {
   }
 
   ngOnInit() {
@@ -32,7 +34,13 @@ export class ShowTimeComponent implements OnInit {
   }
 
   closeTimeModal() {
-    this.visible = false;
+    this.render.addClass(this.modal.nativeElement, 'close_modal');
+
+    setTimeout(function (page) {
+      page.formSpeaker = new Question();
+      page.visible = false;
+      page.render.removeClass(page.modal.nativeElement, 'close_modal');
+    }, 500, this);
   }
 
   changeInput() {

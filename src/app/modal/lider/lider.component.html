@@ -1,6 +1,6 @@
 <div [hidden]="!visible" class="show-time">
   <div class="modal_center">
-    <div class="modal">
+    <div class="modal" #modal>
       <h3>Оберіть голову</h3>
       <select [(ngModel)]="selectedValue" class="input_main">
         <option value="null" hidden>Оберіть головного</option>

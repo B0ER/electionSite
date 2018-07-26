@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {ShareService} from '../../_services/share.service';
 import {ApiService} from '../../_services/api.service';
+import {Question} from '../../_models/question';
 
 @Component({
   selector: 'app-session',
@@ -10,8 +11,9 @@ import {ApiService} from '../../_services/api.service';
 export class SessionComponent implements OnInit {
   inputValue: string;
   visible: boolean;
+  @ViewChild('modal') modal: ElementRef;
 
-  constructor(private shareService: ShareService, private apiService: ApiService) {
+  constructor(private shareService: ShareService, private apiService: ApiService, private render: Renderer2) {
   }
 
   ngOnInit() {
@@ -23,8 +25,13 @@ export class SessionComponent implements OnInit {
   }
 
   closeModal() {
-    this.inputValue = '';
-    this.visible = false;
+    this.render.addClass(this.modal.nativeElement, 'close_modal');
+
+    setTimeout(function (page) {
+      page.inputValue = '';
+      page.visible = false;
+      page.render.removeClass(page.modal.nativeElement, 'close_modal');
+    }, 500, this);
   }
 
   saveSession() {

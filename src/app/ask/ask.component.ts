@@ -1,4 +1,4 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {ApiService} from '../_services/api.service';
 import {User} from '../_models/user';
 import {Question} from '../_models/question';
@@ -26,7 +26,7 @@ export class AskComponent implements OnInit {
 
   @ViewChild('modal') modal: ElementRef;
 
-  constructor(private apiService: ApiService) {
+  constructor(private apiService: ApiService, private render: Renderer2) {
     this.modalVisible = false;
     this.formAsk = new Question();
     this.allIsSelect = false;
@@ -39,8 +39,12 @@ export class AskComponent implements OnInit {
   }
 
   closeModal() {
-    this.formAsk = new Question();
-    this.modalVisible = false;
+    this.render.addClass(this.modal.nativeElement, 'close_modal');
+
+    setTimeout(function (page) {
+      page.formAsk = new Question();
+      page.modalVisible = false;
+    }, 500, this);
   }
 
   selectAll() {

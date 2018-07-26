@@ -80,9 +80,9 @@ button:disabled {
   align-items: center;
   text-align: center;
   background: rgb(50, 50, 50);
-  top: 30%;
-  left: 40%;
-  margin-right: -60%;
+  margin-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 3px;
   border: 2px solid rgba(0, 96, 200, 0.76);
   box-shadow: 0 0 3px 0 #000000;

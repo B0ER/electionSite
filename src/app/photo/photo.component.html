@@ -18,7 +18,7 @@
         <input type="file" name="photo" ng2FileSelect [uploader]="uploader" accept="image/png, image/jpeg"/>
       </label>
 
-      <select [(ngModel)]="idSelectSpeaker" class="input_main">
+      <select [(ngModel)]="idSelectSpeaker" class="input_main" (change)="changeIdSpeaker()">
         <option value="null">Оберіть власника</option>
         <option *ngFor="let speaker of speakerList" [ngValue]="speaker.id">{{speaker.FIO}}</option>
       </select>
@@ -26,7 +26,7 @@
 
       <div class="but_modal_table">
         <button class="but_cancel" (click)="closeModal()">Відмінити</button>
-        <button class="but_pick" (click)="saveItem()" [disabled]="!uploader.getNotUploadedItems().length">Завантажити
+        <button class="but_pick" (click)="saveItem()" [disabled]="!fileSelected && !idSpeakerSelected" (change)="fileSelect()">Завантажити
         </button>
       </div>
 

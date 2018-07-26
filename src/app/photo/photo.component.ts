@@ -22,6 +22,8 @@ export class PhotoComponent implements OnInit {
   currentConvocation: string;
   currentSession: string;
   emptySession: boolean;
+  idSpeakerSelected: boolean = false;
+  fileSelected: boolean = false;
 
   public uploader: FileUploader = new FileUploader({
     url: `${this.apiService.API_URL}/insertPhoto.php`,
@@ -133,6 +135,26 @@ export class PhotoComponent implements OnInit {
     x.className = 'show';
 
     // After 3 seconds, remove the show class from DIV
-    setTimeout(function(){ x.className = x.className.replace('show', ''); }, 3000);
+    setTimeout(function () {
+      x.className = x.className.replace('show', '');
+    }, 3000);
+  }
+
+  changeIdSpeaker() {
+    if (this.idSelectSpeaker == null) {
+      this.idSpeakerSelected = false;
+    }
+
+    if (this.idSelectSpeaker != null) {
+      this.idSpeakerSelected = true;
+    }
+  }
+
+  fileSelect() {
+    if (!this.uploader.getNotUploadedItems().length) {
+      this.fileSelected = true;
+    } else {
+      this.fileSelected = false;
+    }
   }
 }
